@@ -1,0 +1,57 @@
+<section>
+    <!-- nav.html -->
+    <header class="header">
+        <!-- First Row - Logo and Search -->
+        <div class="header-top">
+            <div class="header-container">
+                <div class="logo-container">
+                    <img src="assets/img/logo.png" alt="WSU LOGO" class="logo-img" />
+                </div>
+                <div class="search-container">
+                    <form class="search-form" id="searchForm">
+                        <input type="text" class="search-input" id="searchInput" placeholder="Search..."
+                            aria-label="Search">
+                        <button type="submit" class="search-button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                            </svg>
+                        </button>
+                    </form>
+                    <div class="search-results" id="searchResults"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Second Row - Centered Navigation -->
+        <div class="header-bottom">
+            <nav class="navbar">
+                <ul class="nav-links">
+                    <li><a href="/index.html" class="nav-link">Home</a></li>
+                    <li><a href="/assest/about.html" class="nav-link">About Us</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="nav-link dropdown-toggle">
+                            Units
+                            <svg class="dropdown-icon" viewBox="0 0 24 24" width="16" height="16">
+                                <path fill="currentColor" d="M7 10l5 5 5-5z" />
+                            </svg>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/assest/student-tracking.html" class="dropdown-link">Student Tracking Unit</a>
+                            </li>
+                            <li><a href="/assest/hemis.html" class="dropdown-link">HEMIS</a></li>
+                            <li><a href="/assest/institutional-research.html" class="dropdown-link">Institutional
+                                    Research</a></li>
+                            <li><a href="/assest/operational-intelligence.html" class="dropdown-link">Operational
+                                    Intelligence</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li><a href="#" onclick="contact()" class="nav-link">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+</section>

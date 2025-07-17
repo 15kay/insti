@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mmakola Chatbot Widget</title>
+<script src="https://js.puter.com/v2/"></script>
+<link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+<style>
+  /* Chat Widget Styles */
+  #chat-widget {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 360px;
+    max-height: 500px;
+    background: #fff;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    z-index: 99999;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+  }
+  #chat-widget.open {
+    transform: translateY(0);
+  }
+  #chat-header {
+    background: #10a37f;
+    color: white;
+    padding: 12px 16px;
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+  }
+  #chat-body {
+    flex: 1;
+    padding: 12px;
+    overflow-y: auto;
+    background: #f9fafb;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .message {
+    max-width: 80%;
+    padding: 10px 14px;
+    border-radius: 12px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+  .user-message {
+    background: #10a37f;
+    color: white;
+    align-self: flex-end;
+  }
+  .bot-message {
+    background: #e5e7eb;
+    color: #111827;
+    align-self: flex-start;
+  }
+  #chat-input-area {
+    display: flex;
+    padding: 12px;
+    background: #f3f4f6;
+    border-top: 1px solid #d1d5db;
+  }
+  #chat-input {
+    flex: 1;
+    border: none;
+    padding: 10px;
+    border-radius: 12px;
+    font-size: 1rem;
+    outline: none;
+  }
+  #send-btn {
+    background: #10a37f;
+    border: none;
+    color: white;
+    padding: 0 20px;
+    margin-left: 8px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 600;
+  }
+  pre {
+    background: #1f2937;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    overflow-x: auto;
+    margin: 0;
+  }
+  /* Typing dots */
+  .typing {
+    display: inline-flex;
+    gap: 6px;
+    margin-left: 8px;
+  }
+  .typing span {
+    width: 8px;
+    height: 8px;
+    background: #bbb;
+    border-radius: 50%;
+    animation: blink 1.4s infinite;
+  }
+  .typing span:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  .typing span:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+  @keyframes blink {
+    0%, 80%, 100% {opacity: 0.3;}
+    40% {opacity: 1;}
+  }
+</style>
+</head>
+<body>
+
+<div id="chat-widget" aria-live="polite" aria-label="Chatbot">
+  <div id="chat-header" role="button" tabindex="0" aria-expanded="false" aria-controls="chat-body">
+    Chat with Mmakola AI Assistant
+  </div>
+  <div id="chat-body" hidden></div>
+  <form id="chat-input-area" hidden>
+    <input id="chat-input" placeholder="Ask a question..." aria-label="Type your message here" autocomplete="off" />
+    <button type="submit" id="send-btn" aria-label="Send message">Send</button>
+  </form>
+</div>
+
+<script>
+  const chatWidget = document.getElementById('chat-widget');
+  const chatHeader = document.getElementById('chat-header');
+  const chatBody = document.getElementById('chat-body');
+  const chatInputArea = document.getElementById('chat-input-area');
+  const chatInput = document.getElementById('chat-input');
+
+  const SITE_CONTEXT = `
+You are an expert legal assistant chatbot for Mmakola Matsimela Incorporated Attorneys.
+Offices in Polokwane (Jan Henstock Building) and Sandton (165 West Street, Lonehill Office Park).
+Services: Personal Injury, Civil Litigation, Conveyancing, Labour Law, Criminal Law, Family Law, Notarial Services, and Municipal Law.
+Polokwane: +27 15 493 1592 | reception@mmakolamatsimela.co.za
+Sandton: +27 11 492 2075 | reception2@mmakolamatsimela.co.za
+Hours: Mon–Thu 08:00–16:30, Fri 08:00–16:00
+Level 1 B-BBEE | Founded in 2017
+If unsure, politely refer users to contact the firm.
+`;
+
+  // Toggle chat open/close
+  function toggleChat() {
+    const isOpen = chatWidget.classList.toggle('open');
+    chatBody.hidden = !isOpen;
+    chatInputArea.hidden = !isOpen;
+    chatHeader.setAttribute('aria-expanded', isOpen);
+    if(isOpen) chatInput.focus();
+  }
+
+  chatHeader.addEventListener('click', toggleChat);
+  chatHeader.addEventListener('keydown', e => {
+    if(e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      toggleChat();
+    }
+  });
+
+  // Format message text, including code blocks with Prism.js
+  function formatMessage(text) {
+    return text.replace(/```(\w+)?\n?([\s\S]*?)```/g, (match, lang, code) => {
+      return `<pre><code class="language-${lang || 'plaintext'}">${escapeHTML(code)}</code></pre>`;
+    });
+  }
+
+  function escapeHTML(str) {
+    return str
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;");
+  }
+
+  // Append message div to chat body
+  function appendMessage(text, sender = 'bot') {
+    const msg = document.createElement('div');
+    msg.classList.add('message');
+    msg.classList.add(sender === 'user' ? 'user-message' : 'bot-message');
+    msg.innerHTML = formatMessage(text);
+    chatBody.appendChild(msg);
+    chatBody.scrollTop = chatBody.scrollHeight;
+    Prism.highlightAll();
+    return msg;
+  }
+
+  // Show typing animation
+  function showTyping() {
+    const typingMsg = document.createElement('div');
+    typingMsg.classList.add('message', 'bot-message');
+    typingMsg.innerHTML = '<div class="typing"><span></span><span></span><span></span></div>';
+    chatBody.appendChild(typingMsg);
+    chatBody.scrollTop = chatBody.scrollHeight;
+    return typingMsg;
+  }
+
+  chatInputArea.addEventListener('submit', async e => {
+    e.preventDefault();
+    const userText = chatInput.value.trim();
+    if (!userText) return;
+    appendMessage(userText, 'user');
+    chatInput.value = '';
+    const typingIndicator = showTyping();
+
+    const fullPrompt = `${SITE_CONTEXT}\n\nUser: ${userText}\nAssistant:`;
+
+    try {
+      const responseStream = await puter.ai.chat(fullPrompt, {
+        model: 'deepseek-chat',
+        stream: true
+      });
+
+      let botResponse = '';
+      for await (const part of responseStream) {
+        if (part?.text) {
+          botResponse += part.text;
+          typingIndicator.innerHTML = formatMessage(botResponse);
+          Prism.highlightAll();
+          chatBody.scrollTop = chatBody.scrollHeight;
+        }
+      }
+      // Finished typing
+    } catch (err) {
+      console.error('Chat error:', err);
+      typingIndicator.innerHTML = '⚠️ Sorry, an error occurred. Please try again later.';
+    }
+  });
+
+  // Optionally open chatbot on page load
+  // toggleChat();
+</script>
+
+</body>
+</html>
