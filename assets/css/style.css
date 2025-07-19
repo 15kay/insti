@@ -449,7 +449,7 @@ body {
   left: -280px;
   width: 280px;
   height: 100vh;
-  /* background-color: #1e1f21; */
+  background-color: #1e1f21;
   color: white;
   padding: 40px 25px;
   display: flex;
