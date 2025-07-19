@@ -231,12 +231,10 @@
 </style>
 
 <body>
-
-    <section>
+<section>
+        <script src="js/load-nav.js"></script>
         <!-- nav.html -->
         <header class="header">
-
-            <script src="js/load-nav.js"></script>
             <!-- First Row - Logo and Search -->
             <div class="header-top">
                 <div class="header-container">
@@ -247,31 +245,34 @@
                         <form class="search-form" id="searchForm">
                             <input type="text" class="search-input" id="searchInput" placeholder="Search..."
                                 aria-label="Search" />
-                            <button type="submit" class="search-button">
+                            <!-- <button type="submit" class="search-button">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round">
                                     <circle cx="11" cy="11" r="8"></circle>
                                     <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                                 </svg>
-                            </button>
+                            </button> -->
                         </form>
                         <div class="search-results" id="searchResults"></div>
                     </div>
                 </div>
             </div>
 
+
             <!-- Second Row - Centered Navigation -->
             <div class="header-bottom">
                 <!-- Hamburger Button for Mobile -->
-              <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false"
+                <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false"
                     aria-controls="sidebar">
                     <span class="hamburger-icon">&#9776;</span>
                     <span class="hamburger-label">Menu</span>
                 </button>
 
+
                 <!-- Sidebar Navigation -->
                 <nav class="navbar" id="sidebar" aria-label="Mobile Navigation">
+                    <!-- Sidebar Search at top -->
                     <!-- Sidebar Search for Mobile -->
                     <div class="sidebar-search-container">
                         <form class="sidebar-search-form" id="sidebarSearchForm">
@@ -280,6 +281,7 @@
 
                         </form>
                     </div>
+
                     <ul class="nav-links">
                         <li><a href="index.html" class="nav-link">Home</a></li>
                         <li><a href="about.html" class="nav-link">About Us</a></li>
@@ -297,8 +299,7 @@
                                 <li><a href="./IR/ir.html" class="dropdown-link">Analytics & Business Intelligence</a>
                                 </li>
                                 <li><a href="/assest/operational-intelligence.html" class="dropdown-link">Operational
-                                        Intelligence</a>
-                                </li>
+                                        Intelligence</a></li>
                             </ul>
                         </li>
                         <li><a href="news.html" class="nav-link">News</a></li>
@@ -308,6 +309,7 @@
             </div>
         </header>
     </section>
+
 
 
 
