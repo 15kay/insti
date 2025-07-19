@@ -9,8 +9,104 @@
     <link rel="shortcut icon" href="assets/img/logo.svg" type="image/x-icon">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 </head>
+<style>
+ .latest-section {
+            padding: 4rem 1.5rem;
+            background-color: var(--bg-secondary);
+            color: var(--text);
+            text-align: center;
+        }
 
+        
+        .latest-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .latest-item {
+            background: #fff;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+            /* Add this: */
+
+        }
+
+        .latest-img {
+              width: 100%;
+      height: 180px;
+      object-fit: cover;
+      margin-bottom: 0.75rem;
+      border-radius: 4px;
+      display: block;
+        }
+
+        .latest-content {
+            padding: 1rem 1.5rem 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .latest-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color:  #0d3b66;
+            margin-bottom: 0.5rem;
+            text-transform: none;
+        }
+
+        .latest-desc {
+            font-size: 1rem;
+            color: var(--text);
+            opacity: 0.75;
+            line-height: 1.4;
+            margin: 0;
+        }
+        .latest-btn {
+  margin-top: 1rem;
+  display: inline-block;
+  padding: 0.5rem 1.25rem;
+  background-color: #0d3b66;
+  color: #fff;
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  align-self: flex-start;
+}
+
+.latest-btn:hover {
+  background-color: var(--primary-dark);
+  color: #fff;
+}
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .latest-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .latest-img {
+    height: 200px;
+  }
+}
+
+
+    </style>
 <body>
+
+    
 
     <section>
         <script src="js/load-nav.js"></script>
@@ -52,10 +148,17 @@
 
                 <!-- Sidebar Navigation -->
                 <nav class="navbar" id="sidebar" aria-label="Mobile Navigation">
-                    <!-- <button class="close-btn" id="closeBtn" aria-label="Close menu">&times;</button> -->
+                    <!-- <button
+          class="close-btn"
+          id="closeBtn"
+          aria-label="Close menu"
+          title="Close menu"
+        >
+          &times;
+        </button> -->
                     <ul class="nav-links">
                         <li><a href="index.html" class="nav-link active">Home</a></li>
-                        <li><a href="#" class="nav-link">About Us</a></li>
+                        <li><a href="about.html" class="nav-link">About Us</a></li>
                         <li class="dropdown">
                             <a href="#" class="nav-link dropdown-toggle">
                                 Units
@@ -66,18 +169,20 @@
                             <ul class="dropdown-menu">
                                 <li><a href="./STU/stu.html" class="dropdown-link">Student Tracking Unit</a></li>
                                 <li><a href="./HEMIS/hemis.html" class="dropdown-link">HEMIS</a></li>
-                                <li><a href="./IR/ir.html" class="dropdown-link">Institutional
-                                        Research</a></li>
+                                <li><a href="./IR/ir.html" class="dropdown-link">Institutional Research</a></li>
                                 <li><a href="/assest/operational-intelligence.html" class="dropdown-link">Operational
                                         Intelligence</a></li>
                             </ul>
                         </li>
+                        <li><a href="news.html" class="nav-link">News</a></li>
                         <li><a href="contact.html" onclick="contact()" class="nav-link">Contact Us</a></li>
                     </ul>
                 </nav>
             </div>
         </header>
     </section>
+
+
 
 
 
@@ -91,8 +196,8 @@
                 Empowering WSU with data, insights, and strategy for student success and institutional excellence.
             </p>
             <div class="hero-buttons">
-                <a href="assest/about.html" class="btn btn-primary">Explore Our Work</a>
-                <a href="assest/contact.html" class="btn btn-secondary">Contact Us</a>
+                <a href="about.html" class="btn btn-primary">Learn More</a>
+                <a href="contact.html" class="btn btn-secondary">Contact Us</a>
             </div>
         </div>
     </section>
@@ -104,7 +209,7 @@
 
             <div class="about-grid">
                 <div class="about-image">
-                    <img src="assets/img/image.png" alt="Institutional Research & Planning at WSU">
+                    <img src="assets/img/louis.png" alt="Institutional Research & Planning at WSU">
                 </div>
                 <div class="about-content">
                     <h3>Institutional Research & Planning at WSU</h3>
@@ -263,8 +368,84 @@
         </aside>
     </section>
 
-
-
+    <section id="latest-reports" class="latest-section">
+        <div class="container">
+            <h2 class="section-title">Latest Reports & Dashboards</h2>
+            <div class="latest-grid">
+                <article class="latest-item">
+                    <img src="assets/img/follow-up.png" alt="Report 1" class="latest-img" />
+                    <div class="latest-content">
+                        <h3 class="latest-title">2024 Student At Risk</h3>
+                        <p class="latest-desc" style="text-align: justify;">Comprehensive analysis of graduate outcomes
+                            and employment trends. Identifying and supporting at-risk students remains a core focus of
+                            our institution’s efforts to foster
+                            equity, inclusion, and academic achievement</p>
+                            <a href="reports/Student at Risk Survey V3-FINAL.pdf" class="latest-btn" target="_blank">View</a>
+                    </div>
+                </article>
+                
+                <article class="latest-item">
+                    <img src="assets/img/stop-out.png" alt="Dashboard 1" class="latest-img" />
+                    <div class="latest-content">
+                        <h3 class="latest-title">Stop Out Survey</h3>
+                        <p class="latest-desc" style="text-align: justify;">Understanding the reasons behind student
+                            stop-outs is essential for developing
+                            effective strategies to improve retention, re-engagement, and overall student success.</p>
+                            <a href="reports/Stop-out Survey. V3-FINAL.pdf class=" class="latest-btn" target="_blank">View</a>
+                    </div>
+                </article>
+                
+                <article class="latest-item">
+                    <img src="assets/img/graduation.png" alt="Report 2" class="latest-img" />
+                    <div class="latest-content">
+                        <h3 class="latest-title">Graduate Destination Survey</h3>
+                        <p class="latest-desc" style="text-align: justify;">Class of 2024 – Summer Graduations. This
+                            report provides valuable insights into our graduates' career trajectories and further study
+                            pursuits,
+                            offering a comprehensive overview of their transition from higher education into the
+                            professional world.</p>
+                            <a href="reports/Graduate Destination Survey V4-FINAL.pdf" class="latest-btn" target="_blank">View</a>
+                    </div>
+                </article>
+                
+                <article class="latest-item">
+                    <img src="assets/img/postgrad.png" alt="Report 2" class="latest-img" />
+                    <div class="latest-content">
+                        <h3 class="latest-title">Postgraduate Experience Survey 2024</h3>
+                        <p class="latest-desc" style="text-align: justify;">This report marks a significant step in our
+                            ongoing efforts to enhance postgraduate education,
+                            ensuring our students receive the highest support, resources, and academic and professional
+                            growth
+                            opportunities.</p>
+                            <a href="reports/Post Graduate Survey V3-FINAL.pdf" class="latest-btn" target="_blank">View</a>
+                    </div>
+                </article>
+                
+                <article class="latest-item">
+                    <img src="assets/img/undergrad.png" alt="Report 2" class="latest-img" />
+                    <div class="latest-content">
+                        <h3 class="latest-title">Undergraduate Experience Survey 2024</h3>
+                        <p class="latest-desc" style="text-align: justify;"> first Undergraduate Experience Survey 2024 Report a milestone 
+in our commitment to understanding and enhancing the student journey at WSU. This inaugural 
+survey marks a significant step forward in our efforts to listen, learn, and respond to the needs of our 
+undergraduate community</p>
+                        <a href="reports/Undergraduate Survey Report (V5).pdf" class="latest-btn" target="_blank">View</a>
+                    </div>
+                </article>
+               
+                <article class="latest-item">
+                    <img src="assets/img/Employment.png" alt="Report 2" class="latest-img" />
+                    <div class="latest-content">
+                        <h3 class="latest-title">Employment Assessment Report 2024</h3>
+                        <p class="latest-desc">Insights into employment rates and skills demand across sectors.</p>
+                        <a href="reports/Employability Assessment Report Final-WSU-FINAL-June-2025.pdf" class="latest-btn" target="_blank">View</a>
+                    </div>
+                </article>
+                <!-- Add more reports/dashboards as needed -->
+            </div>
+        </div>
+    </section>
+    
     <!-- Newsletter Section -->
     <section class="newsletter-section">
         <div class="container">
@@ -348,9 +529,5 @@
             </div>
         </div>
     </footer>
-    <script></script>
-
-
 </body>
-
 </html>

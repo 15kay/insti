@@ -62,12 +62,13 @@
 
     .unit-tab {
         padding: 1rem 2rem;
-        background: var(--bg-secondary);
+        background:  #0d3b66;;
         border: none;
         border-radius: var(--radius);
         font-weight: 600;
         cursor: pointer;
         transition: var(--transition);
+        color: white;
     }
 
     .unit-tab:hover,
@@ -120,7 +121,7 @@
         width: 50px;
         height: 50px;
         background: var(--bg-secondary);
-        color: var(--primary);
+       color: #0d3b66;
         border-radius: 50%;
         display: flex;
         align-items: center;
@@ -131,7 +132,7 @@
 
     .unit-title {
         font-size: 1.75rem;
-        color: var(--primary);
+        color: #0d3b66;;
         margin: 0;
     }
 
@@ -160,7 +161,7 @@
 
     .contact-card h3 {
         margin-top: 0;
-        color: var(--primary);
+        color:#0d3b66;;
     }
 
     .contact-method {
@@ -171,7 +172,7 @@
 
     .method-icon {
         margin-right: 0.75rem;
-        color: var(--primary);
+        color: #0d3b66;;
     }
 
     .team-grid {
@@ -191,7 +192,7 @@
         border-radius: 50%;
         object-fit: cover;
         margin-bottom: 1rem;
-        border: 3px solid var(--primary);
+        border: 3px solid #feb847;
     }
 
     .member-name {
@@ -226,75 +227,107 @@
 </style>
 
 <body>
-    <section>
-        
-        <!-- nav.html -->
-        <header class="header">
-            <!-- First Row - Logo and Search -->
-            <div class="header-top">
-                <div class="header-container">
-                    <div class="logo-container centered-logo">
-                        <img src="assets/img/logo.png" alt="WSU LOGO" class="logo-img" />
-                    </div>
-                    <div class="search-container">
-                        <form class="search-form" id="searchForm">
-                            <input type="text" class="search-input" id="searchInput" placeholder="Search..."
-                                aria-label="Search" />
-                            <button type="submit" class="search-button">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <circle cx="11" cy="11" r="8"></circle>
-                                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                                </svg>
-                            </button>
-                        </form>
-                        <div class="search-results" id="searchResults"></div>
-                    </div>
-                </div>
-            </div>
+   
+<section>
+  <script src="js/load-nav.js"></script>
+  <!-- nav.html -->
+  <header class="header">
+    <!-- First Row - Logo and Search -->
+    <div class="header-top">
+      <div class="header-container">
+        <div class="logo-container centered-logo">
+          <img src="assets/img/logo.png" alt="WSU LOGO" class="logo-img" />
+        </div>
+        <div class="search-container">
+          <form class="search-form" id="searchForm">
+            <input
+              type="text"
+              class="search-input"
+              id="searchInput"
+              placeholder="Search..."
+              aria-label="Search"
+            />
+            <button type="submit" class="search-button">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+            </button>
+          </form>
+          <div class="search-results" id="searchResults"></div>
+        </div>
+      </div>
+    </div>
 
-            <!-- Second Row - Centered Navigation -->
-            <div class="header-bottom">
-                <!-- Hamburger Button for Mobile -->
-                <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false"
-                    aria-controls="sidebar">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </button>
+    <!-- Second Row - Centered Navigation -->
+    <div class="header-bottom">
+      <!-- Hamburger Button for Mobile -->
+      <button
+        class="hamburger"
+        id="hamburger"
+        aria-label="Toggle navigation"
+        aria-expanded="false"
+        aria-controls="sidebar"
+      >
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
 
-                <!-- Sidebar Navigation -->
-                <nav class="navbar" id="sidebar" aria-label="Mobile Navigation">
-                    <!-- <button class="close-btn" id="closeBtn" aria-label="Close menu">&times;</button> -->
-                    <ul class="nav-links">
-                        <li><a href="index.html" class="nav-link">Home</a></li>
-                        <li><a href="#" class="nav-link">About Us</a></li>
-                        <li class="dropdown">
-                            <a href="#" class="nav-link dropdown-toggle">
-                                Units
-                                <svg class="dropdown-icon" viewBox="0 0 24 24" width="16" height="16">
-                                    <path fill="currentColor" d="M7 10l5 5 5-5z" />
-                                </svg>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="./STU/stu.html" class="dropdown-link">Student Tracking Unit</a></li>
-                                <li><a href="./HEMIS/hemis.html" class="dropdown-link">HEMIS</a></li>
-                                <li><a href="./IR/ir.html" class="dropdown-link">Institutional
-                                        Research</a></li>
-                                <li><a href="/assest/operational-intelligence.html" class="dropdown-link">Operational
-                                        Intelligence</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="contact.html" onclick="contact()" class="nav-link active">Contact Us</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </header>
-    </section>
+      <!-- Sidebar Navigation -->
+      <nav class="navbar" id="sidebar" aria-label="Mobile Navigation">
+        <!-- <button
+          class="close-btn"
+          id="closeBtn"
+          aria-label="Close menu"
+          title="Close menu"
+        >
+          &times;
+        </button> -->
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About Us</a></li>
+          <li class="dropdown">
+            <a href="#" class="nav-link dropdown-toggle" >
+              Units
+              <svg
+                class="dropdown-icon"
+                viewBox="0 0 24 24"
+                width="16"
+                height="16"
+              >
+                <path fill="currentColor" d="M7 10l5 5 5-5z" />
+              </svg>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="./STU/stu.html" class="dropdown-link">Student Tracking Unit</a></li>
+              <li><a href="./HEMIS/hemis.html" class="dropdown-link">HEMIS</a></li>
+              <li><a href="./IR/ir.html" class="dropdown-link">Institutional Research</a></li>
+              <li><a href="/assest/operational-intelligence.html" class="dropdown-link">Operational Intelligence</a></li>
+            </ul>
+          </li>
+          <li><a href="news.html" class="nav-link">News</a></li>
+          <li><a href="contact.html" onclick="contact()" class="nav-link active">Contact Us</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+</section>
+
 
 
     <section class="contact-hero">
+        <br>
         <h1>Get In Touch</h1>
         <p>We'd love to hear from you. Reach out to our team for questions, collaborations, or support.</p>
     </section>
