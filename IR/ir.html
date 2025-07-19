@@ -11,11 +11,42 @@
 
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 </head>
+<style>
+    .main-content h2 {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #0d3b66;
+        margin-top: 2rem;
+    }
+
+    .main-content h3,
+    .main-content h4 {
+        font-size: 1.25rem;
+        margin-top: 1.5rem;
+        color: #333;
+    }
+
+    .main-content p {
+        line-height: 1.7;
+        margin-bottom: 1rem;
+        /* text-align: justify; */
+    }
+
+    .main-content ul {
+        margin-left: 1.25rem;
+        padding-left: 1rem;
+        list-style-type: disc;
+    }
+
+    .main-content li {
+        margin-bottom: 0.75rem;
+    }
+</style>
 
 <body>
 
-    <section>
-        <script src="js/load-nav.js"></script>
+   <section>
+       <script src="../js/load-nav.js"></script>
         <!-- nav.html -->
         <header class="header">
             <!-- First Row - Logo and Search -->
@@ -55,9 +86,16 @@
                 <!-- Sidebar Navigation -->
                 <nav class="navbar" id="sidebar" aria-label="Mobile Navigation">
                     <!-- <button class="close-btn" id="closeBtn" aria-label="Close menu">&times;</button> -->
+                      <!-- Sidebar Search for Mobile -->
+          <div class="sidebar-search-container">
+            <form class="sidebar-search-form" id="sidebarSearchForm">
+              <input type="text" class="sidebar-search-input" placeholder="Search..." aria-label="Search" />
+
+            </form>
+          </div>
                     <ul class="nav-links">
                         <li><a href="../index.html" class="nav-link">Home</a></li>
-                        <li><a href="../about.html" class="nav-link active">About Us</a></li>
+                        <li><a href="../about.html" class="nav-link">About Us</a></li>
                         <li class="dropdown">
                             <a href="#" class="nav-link dropdown-toggle">
                                 Units
@@ -66,10 +104,9 @@
                                 </svg>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="../STU/stu.html" class="dropdown-link">Student Tracking Unit</a></li>
+                                <li><a href="../STU/stu.html" class="dropdown-link">Student Tracking - Institutional  Research</a></li>
                                 <li><a href="../HEMIS/hemis.html" class="dropdown-link">HEMIS</a></li>
-                                <li><a href="ir.html" class="dropdown-link">Institutional
-                                        Research</a></li>
+                                <li><a href="ir.html" class="dropdown-link">Analytics & Business Intelligence</a></li>
                                 <li><a href="/assest/operational-intelligence.html" class="dropdown-link">Operational
                                         Intelligence</a></li>
                             </ul>
@@ -83,47 +120,46 @@
     </section>
 
     <section class="contact-hero">
-        <br>
-        <h1>IR</h1>
-        <p>Welcome to Institutional Research</p>
-    </section>
+    <br>
+    <h1>BI</h1>
+    <p>Welcome to Analytics & Business Intelligence</p>
+
+    <nav class="section-nav">
+        <ul>
+            <li><a href="../IR/dashboard.html" class="section-link">View Dashboards</a></li>
+            <li><a href="../IR/reports.html" class="section-link">View Reports</a></li>
+        </ul>
+    </nav>
+</section>
 
 
+    <section class="main-content" style="padding: 3rem 1.5rem; max-width: 1200px; margin: auto;">
+  <!-- Analytics & Business Intelligence -->
+  <h2>Analytics & Business Intelligence</h2>
+  <p style="text-align: justify;">
+    The Analytics & Business Intelligence function plays a crucial role in supporting the university's evidence-based approach to planning and decision-making. It relies on data and analysis, facilitated by a robust Business Intelligence solution. This unit conducts strategic evaluations of institutional performance, including benchmarking, performance analysis, annual and midterm reports, and departmental performance profiling.
+  </p>
+  <p style="text-align: justify;">
+    The function also models future performance trends such as student enrolment projections and carries out impact assessments. It provides the evidence base for programme reviews, strategic initiatives, and ad hoc requests.
+  </p>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const hamburger = document.getElementById("hamburger");
-            const sidebar = document.getElementById("sidebar");
-            const closeBtn = document.getElementById("closeBtn");
+  <h4>Roles and Responsibilities:</h4>
+  <ul>
+    <li><strong>Data Warehousing:</strong> Design, build, and maintain relational databases and data systems for effective storage and analysis. Establish a scalable and secure data warehousing infrastructure.</li>
+    <li><strong>Feeder Schools:</strong> Analyse data from feeder schools to gain insights into prospective student populations and demographic patterns.</li>
+    <li><strong>Special Projects:</strong> Execute data-driven special projects that align with strategic university goals, providing tailored reporting and analysis.</li>
+    <li><strong>Institutional Performance Monitoring:</strong> Track institutional performance metrics, identify gaps, and generate reports to inform continuous improvement across faculties and departments.</li>
+    <li><strong>Institutional Reports and Publications:</strong> Develop and share detailed institutional reports with stakeholders to guide policy, planning, and public communication.</li>
+    <li><strong>Self-Service Reporting and Dashboards:</strong> Provide tools such as PowerHEDA for users to access real-time data, generate custom reports, and make informed decisions independently.</li>
+    <li><strong>Data Warehouse for Student Success:</strong> Manage the integration of Learning Management System (LMS) and other data into analytics platforms that support learning analytics and student success initiatives.</li>
+  </ul>
 
-            hamburger.addEventListener("click", () => {
-                sidebar.classList.toggle("show");
-                hamburger.classList.toggle("active");
-                // Toggle aria-expanded for accessibility
-                const expanded = hamburger.getAttribute("aria-expanded") === "true";
-                hamburger.setAttribute("aria-expanded", String(!expanded));
-            });
+  <p style="text-align: justify;">
+    This function serves as a central pillar of the university’s data ecosystem, enabling performance assessment, strategic foresight, and a culture of data-informed action across the institution.
+  </p>
+</section>
 
-            closeBtn.addEventListener("click", () => {
-                sidebar.classList.remove("show");
-                hamburger.classList.remove("active");
-                hamburger.setAttribute("aria-expanded", "false");
-            });
-
-            // Close sidebar if clicking outside
-            window.addEventListener("click", (e) => {
-                if (
-                    sidebar.classList.contains("show") &&
-                    !sidebar.contains(e.target) &&
-                    !hamburger.contains(e.target)
-                ) {
-                    sidebar.classList.remove("show");
-                    hamburger.classList.remove("active");
-                    hamburger.setAttribute("aria-expanded", "false");
-                }
-            });
-        });
-    </script>
+  
 </body>
 
 </html>

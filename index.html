@@ -10,103 +10,104 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 </head>
 <style>
- .latest-section {
-            padding: 4rem 1.5rem;
-            background-color: var(--bg-secondary);
-            color: var(--text);
-            text-align: center;
-        }
+    .latest-section {
+        padding: 4rem 1.5rem;
+        background-color: var(--bg-secondary);
+        color: var(--text);
+        text-align: center;
+    }
 
-        
+
+    .latest-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+        text-align: left;
+    }
+
+    .latest-item {
+        background: #fff;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+        /* Add this: */
+
+    }
+
+    .latest-img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        margin-bottom: 0.75rem;
+        border-radius: 4px;
+        display: block;
+    }
+
+    .latest-content {
+        padding: 1rem 1.5rem 1.5rem;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .latest-title {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: #0d3b66;
+        margin-bottom: 0.5rem;
+        text-transform: none;
+    }
+
+    .latest-desc {
+        font-size: 1rem;
+        color: var(--text);
+        opacity: 0.75;
+        line-height: 1.4;
+        margin: 0;
+    }
+
+    .latest-btn {
+        margin-top: 1rem;
+        display: inline-block;
+        padding: 0.5rem 1.25rem;
+        background-color: #0d3b66;
+        color: #fff;
+        border-radius: var(--radius);
+        font-size: 0.95rem;
+        font-weight: 500;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+        align-self: flex-start;
+    }
+
+    .latest-btn:hover {
+        background-color: var(--primary-dark);
+        color: #fff;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
         .latest-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: left;
-        }
-
-        .latest-item {
-            background: #fff;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-            /* Add this: */
-
+            grid-template-columns: 1fr;
         }
 
         .latest-img {
-              width: 100%;
-      height: 180px;
-      object-fit: cover;
-      margin-bottom: 0.75rem;
-      border-radius: 4px;
-      display: block;
+            height: 200px;
         }
+    }
+</style>
 
-        .latest-content {
-            padding: 1rem 1.5rem 1.5rem;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .latest-title {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color:  #0d3b66;
-            margin-bottom: 0.5rem;
-            text-transform: none;
-        }
-
-        .latest-desc {
-            font-size: 1rem;
-            color: var(--text);
-            opacity: 0.75;
-            line-height: 1.4;
-            margin: 0;
-        }
-        .latest-btn {
-  margin-top: 1rem;
-  display: inline-block;
-  padding: 0.5rem 1.25rem;
-  background-color: #0d3b66;
-  color: #fff;
-  border-radius: var(--radius);
-  font-size: 0.95rem;
-  font-weight: 500;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
-  align-self: flex-start;
-}
-
-.latest-btn:hover {
-  background-color: var(--primary-dark);
-  color: #fff;
-}
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .latest-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .latest-img {
-    height: 200px;
-  }
-}
-
-
-    </style>
 <body>
 
-    
+
 
     <section>
         <script src="js/load-nav.js"></script>
@@ -122,19 +123,20 @@
                         <form class="search-form" id="searchForm">
                             <input type="text" class="search-input" id="searchInput" placeholder="Search..."
                                 aria-label="Search" />
-                            <button type="submit" class="search-button">
+                            <!-- <button type="submit" class="search-button">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round">
                                     <circle cx="11" cy="11" r="8"></circle>
                                     <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                                 </svg>
-                            </button>
+                            </button> -->
                         </form>
                         <div class="search-results" id="searchResults"></div>
                     </div>
                 </div>
             </div>
+            
 
             <!-- Second Row - Centered Navigation -->
             <div class="header-bottom">
@@ -148,14 +150,16 @@
 
                 <!-- Sidebar Navigation -->
                 <nav class="navbar" id="sidebar" aria-label="Mobile Navigation">
-                    <!-- <button
-          class="close-btn"
-          id="closeBtn"
-          aria-label="Close menu"
-          title="Close menu"
-        >
-          &times;
-        </button> -->
+                    <!-- Sidebar Search at top -->
+                    <!-- Sidebar Search for Mobile -->
+                    <div class="sidebar-search-container">
+                        <form class="sidebar-search-form" id="sidebarSearchForm">
+                            <input type="text" class="sidebar-search-input" placeholder="Search..."
+                                aria-label="Search" />
+                            
+                        </form>
+                    </div>
+
                     <ul class="nav-links">
                         <li><a href="index.html" class="nav-link active">Home</a></li>
                         <li><a href="about.html" class="nav-link">About Us</a></li>
@@ -167,9 +171,11 @@
                                 </svg>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="./STU/stu.html" class="dropdown-link">Student Tracking Unit</a></li>
+                                <li><a href="./STU/stu.html" class="dropdown-link">Student Tracking - Institutional
+                                        Research</a></li>
                                 <li><a href="./HEMIS/hemis.html" class="dropdown-link">HEMIS</a></li>
-                                <li><a href="./IR/ir.html" class="dropdown-link">Institutional Research</a></li>
+                                <li><a href="./IR/ir.html" class="dropdown-link">Analytics & Business Intelligence</a>
+                                </li>
                                 <li><a href="/assest/operational-intelligence.html" class="dropdown-link">Operational
                                         Intelligence</a></li>
                             </ul>
@@ -380,10 +386,11 @@
                             and employment trends. Identifying and supporting at-risk students remains a core focus of
                             our institution’s efforts to foster
                             equity, inclusion, and academic achievement</p>
-                            <a href="reports/Student at Risk Survey V3-FINAL.pdf" class="latest-btn" target="_blank">View</a>
+                        <a href="reports/Student at Risk Survey V3-FINAL.pdf" class="latest-btn"
+                            target="_blank">View</a>
                     </div>
                 </article>
-                
+
                 <article class="latest-item">
                     <img src="assets/img/stop-out.png" alt="Dashboard 1" class="latest-img" />
                     <div class="latest-content">
@@ -391,10 +398,11 @@
                         <p class="latest-desc" style="text-align: justify;">Understanding the reasons behind student
                             stop-outs is essential for developing
                             effective strategies to improve retention, re-engagement, and overall student success.</p>
-                            <a href="reports/Stop-out Survey. V3-FINAL.pdf class=" class="latest-btn" target="_blank">View</a>
+                        <a href="reports/Stop-out Survey. V3-FINAL.pdf class=" class="latest-btn"
+                            target="_blank">View</a>
                     </div>
                 </article>
-                
+
                 <article class="latest-item">
                     <img src="assets/img/graduation.png" alt="Report 2" class="latest-img" />
                     <div class="latest-content">
@@ -404,10 +412,11 @@
                             pursuits,
                             offering a comprehensive overview of their transition from higher education into the
                             professional world.</p>
-                            <a href="reports/Graduate Destination Survey V4-FINAL.pdf" class="latest-btn" target="_blank">View</a>
+                        <a href="reports/Graduate Destination Survey V4-FINAL.pdf" class="latest-btn"
+                            target="_blank">View</a>
                     </div>
                 </article>
-                
+
                 <article class="latest-item">
                     <img src="assets/img/postgrad.png" alt="Report 2" class="latest-img" />
                     <div class="latest-content">
@@ -417,35 +426,39 @@
                             ensuring our students receive the highest support, resources, and academic and professional
                             growth
                             opportunities.</p>
-                            <a href="reports/Post Graduate Survey V3-FINAL.pdf" class="latest-btn" target="_blank">View</a>
+                        <a href="reports/Post Graduate Survey V3-FINAL.pdf" class="latest-btn" target="_blank">View</a>
                     </div>
                 </article>
-                
+
                 <article class="latest-item">
                     <img src="assets/img/undergrad.png" alt="Report 2" class="latest-img" />
                     <div class="latest-content">
                         <h3 class="latest-title">Undergraduate Experience Survey 2024</h3>
-                        <p class="latest-desc" style="text-align: justify;"> first Undergraduate Experience Survey 2024 Report a milestone 
-in our commitment to understanding and enhancing the student journey at WSU. This inaugural 
-survey marks a significant step forward in our efforts to listen, learn, and respond to the needs of our 
-undergraduate community</p>
-                        <a href="reports/Undergraduate Survey Report (V5).pdf" class="latest-btn" target="_blank">View</a>
+                        <p class="latest-desc" style="text-align: justify;"> first Undergraduate Experience Survey 2024
+                            Report a milestone
+                            in our commitment to understanding and enhancing the student journey at WSU. This inaugural
+                            survey marks a significant step forward in our efforts to listen, learn, and respond to the
+                            needs of our
+                            undergraduate community</p>
+                        <a href="reports/Undergraduate Survey Report (V5).pdf" class="latest-btn"
+                            target="_blank">View</a>
                     </div>
                 </article>
-               
+
                 <article class="latest-item">
                     <img src="assets/img/Employment.png" alt="Report 2" class="latest-img" />
                     <div class="latest-content">
                         <h3 class="latest-title">Employment Assessment Report 2024</h3>
                         <p class="latest-desc">Insights into employment rates and skills demand across sectors.</p>
-                        <a href="reports/Employability Assessment Report Final-WSU-FINAL-June-2025.pdf" class="latest-btn" target="_blank">View</a>
+                        <a href="reports/Employability Assessment Report Final-WSU-FINAL-June-2025.pdf"
+                            class="latest-btn" target="_blank">View</a>
                     </div>
                 </article>
                 <!-- Add more reports/dashboards as needed -->
             </div>
         </div>
     </section>
-    
+
     <!-- Newsletter Section -->
     <section class="newsletter-section">
         <div class="container">
@@ -530,4 +543,5 @@ undergraduate community</p>
         </div>
     </footer>
 </body>
+
 </html>

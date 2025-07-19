@@ -19,34 +19,36 @@
       margin: 0;
     }
 
- .responsive-wrapper {
-  width: 90%;
-  max-width: 1800px;
-  margin: auto;
-  background: white;
-  padding: 8rem; /* generous padding */
-  box-shadow: 0 0 20px rgba(0,0,0,0.1);
-  border-radius: 8px;
-  box-sizing: border-box;
-}
+    .responsive-wrapper {
+      width: 90%;
+      max-width: 1800px;
+      margin: auto;
+      background: white;
+      padding: 8rem;
+      /* generous padding */
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      box-sizing: border-box;
+    }
 
-/* Medium screens (tablets) */
-@media (max-width: 1024px) {
-  .responsive-wrapper {
-    width: 95%;
-    padding: 8rem;
-  }
-}
+    /* Medium screens (tablets) */
+    @media (max-width: 1024px) {
+      .responsive-wrapper {
+        width: 95%;
+        padding: 8rem;
+      }
+    }
 
-/* Small screens (phones) */
-@media (max-width: 600px) {
-  .responsive-wrapper {
-    width: 98%;
-    padding: 6rem 1.5rem;
-    box-shadow: none; /* optional: remove shadow on tiny screens */
-    border-radius: 0;
-  }
-}
+    /* Small screens (phones) */
+    @media (max-width: 600px) {
+      .responsive-wrapper {
+        width: 98%;
+        padding: 6rem 1.5rem;
+        box-shadow: none;
+        /* optional: remove shadow on tiny screens */
+        border-radius: 0;
+      }
+    }
 
 
 
@@ -213,8 +215,19 @@
           <span class="bar"></span>
         </button>
 
+
         <!-- Sidebar Navigation -->
         <nav class="navbar" id="sidebar" aria-label="Mobile Navigation">
+          <!-- Sidebar Navigation -->
+
+          <!-- Sidebar Search at top -->
+          <!-- Sidebar Search for Mobile -->
+          <div class="sidebar-search-container">
+            <form class="sidebar-search-form" id="sidebarSearchForm">
+              <input type="text" class="sidebar-search-input" placeholder="Search..." aria-label="Search" />
+
+            </form>
+          </div>
           <ul class="nav-links">
             <li><a href="index.html" class="nav-link">Home</a></li>
             <li><a href="about.html" class="nav-link">About Us</a></li>
@@ -226,9 +239,9 @@
                 </svg>
               </a>
               <ul class="dropdown-menu">
-                <li><a href="./STU/stu.html" class="dropdown-link">Student Tracking Unit</a></li>
+                <li><a href="./STU/stu.html" class="dropdown-link">Student Tracking - Institutional Research</a></li>
                 <li><a href="./HEMIS/hemis.html" class="dropdown-link">HEMIS</a></li>
-                <li><a href="./IR/ir.html" class="dropdown-link">Institutional Research</a></li>
+                <li><a href="./IR/ir.html" class="dropdown-link">Analytics & Business Intelligence</a></li>
                 <li><a href="/assest/operational-intelligence.html" class="dropdown-link">Operational Intelligence</a>
                 </li>
               </ul>

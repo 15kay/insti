@@ -23,68 +23,107 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  initSearch(); // Activate search function
+
 });
 
-function initSearch() {
-  const searchForm = document.getElementById("searchForm");
-  const searchInput = document.getElementById("searchInput");
-  const searchResults = document.getElementById("searchResults");
+document.addEventListener("DOMContentLoaded", () => {
+  const input = document.querySelector("#searchInput");
+  const resultsContainer = document.getElementById("searchResults");
 
-  if (!searchForm || !searchInput || !searchResults) return;
+  let currentIndex = 0;
+  let matches = [];
 
-  const searchData = [
-    { title: "About WSU", url: "/assest/about.html" },
-    { title: "Student Tracking", url: "/assest/student-tracking.html" },
-    { title: "HEMIS Information", url: "/assest/hemis.html" },
-    { title: "Institutional Research", url: "/assest/institutional-research.html" },
-    { title: "Contact Information", url: "#", onclick: "contact" }
-  ];
+  function removeHighlights() {
+    document.querySelectorAll(".highlight-search").forEach(span => {
+      const parent = span.parentNode;
+      parent.replaceChild(document.createTextNode(span.textContent), span);
+      parent.normalize();
+    });
+    matches = [];
+    resultsContainer.innerHTML = "";
+  }
 
-  searchInput.addEventListener("input", function () {
-    const query = searchInput.value.toLowerCase();
-    if (query.length < 1) {
-      searchResults.classList.remove("show");
+  function highlightMatches(term) {
+    removeHighlights();
+    if (!term) return;
+
+    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
+    const regex = new RegExp(term, "gi");
+
+    while (walker.nextNode()) {
+      const node = walker.currentNode;
+      if (
+        node.nodeValue &&
+        !node.parentNode.closest("script, style, svg, head, title, noscript, input, textarea, .search-form")
+      ) {
+        const text = node.nodeValue;
+        if (regex.test(text)) {
+          const spanWrap = document.createElement("span");
+          const newText = text.replace(regex, match => {
+            return `<span class="highlight-search">${match}</span>`;
+          });
+          spanWrap.innerHTML = newText;
+          node.parentNode.replaceChild(spanWrap, node);
+        }
+      }
+    }
+
+    matches = Array.from(document.querySelectorAll(".highlight-search"));
+    updateResultsDisplay();
+  }
+
+  function updateResultsDisplay() {
+    if (matches.length === 0) {
+      resultsContainer.innerHTML = "<div>No results found.</div>";
       return;
     }
 
-    const filteredResults = searchData.filter(item =>
-      item.title.toLowerCase().includes(query)
-    );
+    currentIndex = 0;
+    scrollToMatch(currentIndex);
 
-    searchResults.innerHTML = "";
+    resultsContainer.innerHTML = `
+      <div class="results-status">
+        <span>Match <strong id="currentIndex">${currentIndex + 1}</strong> of <strong id="totalResults">${matches.length}</strong></span>
+        <button onclick="navigateSearch(-1)">↑</button>
+        <button onclick="navigateSearch(1)">↓</button>
+      </div>
+    `;
+  }
 
-    if (filteredResults.length === 0) {
-      searchResults.innerHTML = '<div class="search-result-item">No results found</div>';
-    } else {
-      filteredResults.forEach(item => {
-        const div = document.createElement("div");
-        div.className = "search-result-item";
-        div.textContent = item.title;
+  function scrollToMatch(index) {
+    matches.forEach(m => m.classList.remove("current-match"));
 
-        div.addEventListener("click", () => {
-          if (item.onclick && typeof window[item.onclick] === "function") {
-            window[item.onclick]();
-          } else if (item.url) {
-            window.location.href = item.url;
-          } else {
-            console.warn("No valid action for:", item);
-          }
+    if (matches[index]) {
+      matches[index].classList.add("current-match");
 
-          searchResults.classList.remove("show");
-        });
-
-        searchResults.appendChild(div);
-      });
+      // Ensure we scroll to it with some buffer from top
+      const offset = matches[index].getBoundingClientRect().top + window.scrollY - 100;
+      window.scrollTo({ top: offset, behavior: "smooth" });
     }
 
-    searchResults.classList.add("show");
+    const counter = document.getElementById("currentIndex");
+    if (counter) counter.textContent = index + 1;
+  }
+
+  window.navigateSearch = (direction) => {
+    if (!matches.length) return;
+    currentIndex = (currentIndex + direction + matches.length) % matches.length;
+    scrollToMatch(currentIndex);
+  };
+
+  input.addEventListener("input", () => {
+    const term = input.value.trim();
+    highlightMatches(term);
   });
 
-  // Close search dropdown if clicked outside
-  document.addEventListener("click", function (e) {
-    if (!searchForm.contains(e.target)) {
-      searchResults.classList.remove("show");
+  input.addEventListener("keydown", e => {
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
+      navigateSearch(1);
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      navigateSearch(-1);
     }
   });
-}
+});
+
