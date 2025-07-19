@@ -430,10 +430,12 @@ body {
 .hamburger-icon {
   font-size: 1.5rem;
   line-height: 1;
+  color: white;
 }
 
 .hamburger-label {
   display: inline-block;
+  color: white;
 }
 
 /* Show on mobile only */
