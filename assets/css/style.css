@@ -623,7 +623,7 @@ body {
 
 .section-link.active,
 .section-link[aria-current="page"] {
-  background-color: var(--accent, #10b981);
+  background-color: #feb847;
   color: white;
   font-weight: 600;
 }
