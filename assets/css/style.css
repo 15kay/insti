@@ -425,12 +425,12 @@ body {
   z-index: 1300;
   position: relative;
 }
-.hamburger .bar {
+/* .hamburger .bar {
   height: 3px;
   background-color: rgb(255, 255, 255);
   border-radius: 2px;
   transition: all 0.3s ease;
-}
+} */
 .hamburger.active .bar:nth-child(1) {
   transform: rotate(45deg);
 }
