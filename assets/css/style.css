@@ -484,7 +484,12 @@ body {
   .hamburger {
     display: flex;
   }
-
+  .hamburger .bar {
+  height: 3px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
   .search-container {
     display: flex;
   }
