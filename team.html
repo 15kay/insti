@@ -1,14 +1,13 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IRP - WSU</title>
-  <link rel="stylesheet" href="assets/css/style.css" />
-  <link rel="shortcut icon" href="assets/img/logo.svg" type="image/x-icon" />
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IRP - WSU</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="shortcut icon" href="assets/img/logo.svg" type="image/x-icon" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet" />
 
 </head>
 <style>
@@ -24,211 +23,132 @@
         --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         --radius: 0.375rem;
     }
-
-    body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        line-height: 1.6;
-        color: var(--text);
+    [data-theme="dark"] {
+        --bg-light: var(--bg-dark);
+        --card-bg: var(--card-bg-dark);
+        --text-dark: var(--text-light);
     }
 
-    .contact-hero {
-        background: linear-gradient(135deg, #011d42 0%, #004aad 100%);
-        color: white;
-        padding: 5rem 1rem;
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+ 
+
+    .team-section h2 {
         text-align: center;
-        margin-top: 100px;
-    }
-
-    .contact-hero h1 {
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
-    }
-
-    .contact-hero p {
-        font-size: 1.25rem;
-        max-width: 800px;
-        margin: 0 auto 2rem;
-        opacity: 0.9;
-    }
-
-    .unit-selector {
-        display: flex;
-        justify-content: center;
-        gap: 1rem;
-        margin: 2rem auto;
-        max-width: 1200px;
-        flex-wrap: wrap;
-    }
-
-    .unit-tab {
-        padding: 1rem 2rem;
-        background: #0d3b66;
-        ;
-        border: none;
-        border-radius: var(--radius);
-        font-weight: 600;
-        cursor: pointer;
-        transition: var(--transition);
-        color: white;
-    }
-
-    .unit-tab:hover,
-    .unit-tab.active {
-        background: var(--primary);
-        color: white;
-    }
-
-    .units-container {
-        max-width: 1200px;
-        margin: 0 auto 3rem;
-        padding: 0 1.5rem;
-    }
-
-    .unit-section {
-        display: none;
-        background: var(--bg);
-        border-radius: var(--radius);
-        padding: 2rem;
-        box-shadow: var(--shadow);
+        color: black;
         margin-bottom: 2rem;
     }
 
-    .unit-section.active {
-        display: block;
-        animation: fadeIn 0.5s ease;
-    }
-
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
-            transform: translateY(10px);
-        }
-
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    .unit-header {
-        display: flex;
-        align-items: center;
-        margin-bottom: 1.5rem;
-        padding-bottom: 1rem;
-        border-bottom: 1px solid var(--border);
-    }
-
-    .unit-icon {
-        width: 50px;
-        height: 50px;
-        background: var(--bg-secondary);
-        color: #0d3b66;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-right: 1rem;
-        font-size: 1.5rem;
-    }
-
-    .unit-title {
-        font-size: 1.75rem;
-        color: #0d3b66;
-        ;
-        margin: 0;
-    }
-
-    .unit-description {
-        margin-bottom: 2rem;
-        color: var(--text-light);
-    }
-
-    .contact-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
-    }
-
-    .contact-card {
-        background: var(--bg-secondary);
-        border-radius: var(--radius);
-        padding: 1.5rem;
-        transition: var(--transition);
-    }
-
-    .contact-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-    }
-
-    .contact-card h3 {
-        margin-top: 0;
-        color: #0d3b66;
-        ;
-    }
-
-    .contact-method {
-        display: flex;
-        align-items: center;
-        margin-bottom: 1rem;
-    }
-
-    .method-icon {
-        margin-right: 0.75rem;
-        color: #0d3b66;
-        ;
+    .team-section {
+        max-width: 1200px;
+        margin: auto;
     }
 
     .team-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-        gap: 1.5rem;
-        margin-top: 2rem;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
     }
 
-    .team-member {
+    .card {
+        position: relative;
+        background: var(--card-bg);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        overflow: hidden;
         text-align: center;
+        transition: transform 0.3s ease;
+        cursor: pointer;
     }
 
-    .member-photo {
+    .card:hover {
+        transform: translateY(-5px);
+    }
+
+    .card img {
         width: 120px;
         height: 120px;
         border-radius: 50%;
         object-fit: cover;
+        border: 3px solid rgba(33, 45, 76, 0.4);
+        margin-top: 1.5rem;
+    }
+
+    .card-content {
+        padding: 1rem 1rem 1.5rem;
+    }
+
+    .card h3 {
+        margin: 0.8rem 0 0.3rem;
+        font-size: 1.2rem;
+        color: var(--primary);
+    }
+
+    .card .title {
+        font-style: italic;
+        color: #666;
+        font-weight: 500;
+        font-size: 0.95rem;
         margin-bottom: 1rem;
-        border: 3px solid #feb847;
     }
 
-    .member-name {
-        font-weight: 600;
-        margin: 0.5rem 0;
-    }
-
-    .member-role {
-        color: var(--text-light);
+    .card .email a {
+        color: var(--accent);
         font-size: 0.9rem;
-        margin-bottom: 0.5rem;
+        text-decoration: none;
     }
 
-    @media (max-width: 768px) {
-        .unit-selector {
-            flex-direction: column;
-            align-items: stretch;
+    .card .email a:hover {
+        text-decoration: underline;
+    }
+
+    .bio-overlay {
+        position: absolute;
+        inset: 0;
+        background-color: rgba(33, 45, 76, 0.519);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1.5rem;
+        font-size: 0.95rem;
+        text-align: center;
+        opacity: 0;
+        transition: opacity 0.4s ease;
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    /* Hover for desktop */
+    @media (hover: hover) and (pointer: fine) {
+        .card:hover .bio-overlay {
+            opacity: 1;
+            pointer-events: all;
+        }
+    }
+
+    /* Click for mobile */
+    .card.active .bio-overlay {
+        opacity: 1 !important;
+        pointer-events: all !important;
+    }
+
+    @media (max-width: 600px) {
+        body {
+            padding: 1rem;
         }
 
-        .unit-tab {
-            width: 100%;
-        }
-
-        .contact-hero {
-            padding: 3rem 1rem;
-        }
-
-        .contact-hero h1 {
-            font-size: 2rem;
+        .card img {
+            width: 100px;
+            height: 100px;
         }
     }
 </style>
+
 <body>
     <section>
         <script src="js/load-nav.js"></script>
@@ -261,7 +181,7 @@
             <!-- Second Row - Centered Navigation -->
             <div class="header-bottom">
                 <!-- Hamburger Button for Mobile -->
-                 <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false"
+                <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false"
                     aria-controls="sidebar">
                     <span class="hamburger-icon">&#9776;</span>
                     <span class="hamburger-label">Menu</span>
@@ -288,13 +208,13 @@
                                 </svg>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="#" class="dropdown-link">Institutional Intelligence</a></li>
+                               <li><a href="./IRI/index.html" class="dropdown-link">Institutional Intelligence</a></li>
                                 <li><a href="./STU/stu.html" class="dropdown-link">Student Tracking - Institutional
                                         Research</a></li>
                                 <li><a href="./HEMIS/hemis.html" class="dropdown-link">HEMIS</a></li>
                                 <li><a href="./IR/ir.html" class="dropdown-link">Analytics & Business Intelligence</a>
                                 </li>
-                                
+
                             </ul>
                         </li>
                         <li><a href="news.html" class="nav-link">News</a></li>
@@ -310,188 +230,85 @@
         <br>
         <h1>Meet Our Team</h1>
         <p></p>
-
-        <nav class="section-nav">
-            <ul>
-                <li><a  class="section-link" data-unit="stu" >Student Tracking - IR</a></li>
-                <li><a  class="section-link" data-unit="irp">Analytics & Business Intelligence</a></li>
-                <li><a  class="section-link" data-unit="hemis">HEMIS</a></li>
-            </ul>
-        </nav>
     </section>
     <section>
-
-
-        <!-- <div class="unit-selector">
-            <button class="unit-tab active" data-unit="stu">Student Tracking Unit</button>
-            <button class="unit-tab" data-unit="irp">Institutional Research</button>
-            <button class="unit-tab" data-unit="hemis">HEMIS</button>
-        </div> -->
-
-        <div class="units-container">
-            <!-- Student Tracking Unit -->
-            <div id="stu" class="unit-section active">
-                <div class="unit-header">
-                    <div class="unit-icon">
-                        <i class="fas fa-user-graduate"></i>
-                    </div>
-                    <h2 class="unit-title">Student Tracking Unit</h2>
-                </div>
-
-                <p class="unit-description">
-                    Our Student Tracking Unit provides comprehensive data analysis and reporting on student enrollment,
-                    progression, and outcomes to support institutional decision-making.
-                </p>
-
-                <div class="contact-grid">
-                    <div class="contact-card">
-                        <h3>General Inquiries</h3>
-                        <div class="contact-method">
-                            <i class="fas fa-envelope method-icon"></i>
-                            <span>stu@wsu.ac.za</span>
-                        </div>
-                        <div class="contact-method">
-                            <i class="fas fa-phone method-icon"></i>
-                            <span>043</span>
-                        </div>
-                    </div>
-
-                    <div class="contact-card">
-                        <h3>Location</h3>
-                        <div class="contact-method">
-                            <i class="fas fa-map-marker-alt method-icon"></i>
-                            <span>WSU IRP <br>
-                                1st Floor, New Admin Building <br>
-                                Potsdam Campus</span>
-                        </div>
-                    </div>
-
-                    <div class="contact-card">
-                        <h3>Hours</h3>
-                        <div class="contact-method">
-                            <i class="fas fa-clock method-icon"></i>
-                            <span>Monday-Friday<br>8:00am - 4:00pm</span>
-                        </div>
-                    </div>
-                </div>
-
-                <h3>Key Team Members</h3>
+        <main class="team-section">
+            <section class="section top-manager">
+                <h2>Top Manager</h2>
                 <div class="team-grid">
-                    <div class="team-member">
-                        <img src="STU/pictures/image(1).png" alt="Dr. Munienge Mbodila" class="member-photo">
-                        <h4 class="member-name">Dr. Munienge Mbodila</h4>
-                        <p class="member-role">Manager, Student Tracking</p>
-                        <p class="contact-method">
-                            <i class="fas fa-envelope method-icon"></i>
-                            <span>mmbodil@wsu.ac.za</span>
-                        </p>
-                    </div>
-
-                    <div class="team-member">
-                        <img src="STU/pictures/AB.png" alt="Michael Chen" class="member-photo">
-                        <h4 class="member-name">Anele Bangani</h4>
-                        <p class="member-role">Data Analyst</p>
-                        <p class="contact-method">
-                            <i class="fas fa-envelope method-icon"></i>
-                            <span>abangani@wsu.ac.za</span>
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Institutional Research -->
-            <div id="irp" class="unit-section">
-                <div class="unit-header">
-                    <div class="unit-icon">
-                        <i class="fas fa-chart-bar"></i>
-                    </div>
-                    <h2 class="unit-title">Institutional Research</h2>
-                </div>
-
-                <p class="unit-description">
-                    The Institutional Research team conducts studies and analyses to support planning, policy
-                    formulation,
-                    and decision-making at all levels of the university.
-                </p>
-
-                <div class="contact-grid">
-                    <div class="contact-card">
-                        <h3>General Inquiries</h3>
-                        <div class="contact-method">
-                            <i class="fas fa-envelope method-icon"></i>
-                            <span>irp@wsu.ac.za</span>
+                    <div class="card" onclick="toggleBio(this)">
+                        <img src="assets/img/Ntsundeni Louis Mapatagane.png" alt="Ntsundeni Louis Mapatagane" />
+                        <div class="card-content">
+                            <h3>Ntsundeni Louis Mapatagane</h3>
+                            <p class="title">Director: Institutional Research and Planning</p>
+                            <p class="email"><i class="fas fa-envelope"></i> <a
+                                    href="mailto:lmapatagane@wsu.ac.za">lmapatagane@wsu.ac.za</a></p>
                         </div>
-                        <div class="contact-method">
-                            <i class="fas fa-phone method-icon"></i>
-                            <span>043</span>
-                        </div>
-                    </div>
-
-                    <div class="contact-card">
-                        <h3>Data Requests</h3>
-                        <div class="contact-method">
-                            <i class="fas fa-database method-icon"></i>
-                            <span><a href="#">Submit Data Request Form</a></span>
-                        </div>
-                    </div>
-
-                    <div class="contact-card">
-                        <h3>Location</h3>
-                        <div class="contact-method">
-                            <i class="fas fa-map-marker-alt method-icon"></i>
-                            <span>Administration Building<br>Room 305<br>Detroit, MI 48202</span>
+                        <div class="bio-overlay">
+                            Oversees data analytics and planning frameworks that inform decision-making, strengthen
+                            governance, and support long-term sustainability.
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
 
-            <!-- HEMIS -->
-            <div id="hemis" class="unit-section">
-                <div class="unit-header">
-                    <div class="unit-icon">
-                        <i class="fas fa-file-alt"></i>
+            <section class="section middle-managers">
+                <h2>Line Managers</h2>
+                <div class="team-grid">
+
+                    <div class="card" onclick="toggleBio(this)">
+                        <img src="STU/pictures/image(1).png" alt="Dr. Munienge Mbodila" />
+                        <div class="card-content">
+                            <h3>Dr. Munienge Mbodila</h3>
+                            <p class="title">Student Tracking & Institutional Research</p>
+                            <p class="email"><i class="fas fa-envelope"></i> <a
+                                    href="mailto:mmbodila@wsu.ac.za">mmbodila@wsu.ac.za</a></p>
+                        </div>
+                        <div class="bio-overlay">
+                            Oversees student data to monitor academic progress and outcomes, enabling evidence-based
+                            decisions and improved educational quality.
+                        </div>
                     </div>
-                    <h2 class="unit-title">HEMIS</h2>
+
+                    <div class="card" onclick="toggleBio(this)">
+                        <img src="assets/img/image.png" alt="Mr. Siyabonga Kweza" />
+                        <div class="card-content">
+                            <h3>Mr. Siyabonga Kweza</h3>
+                            <p class="title">HEMIS Manager</p>
+                            <p class="email"><i class="fas fa-envelope"></i> <a
+                                    href="mailto:skweza@wsu.ac.za">skweza@wsu.ac.za</a></p>
+                        </div>
+                        <div class="bio-overlay">
+                            Manages HEMIS data aligned with national standards to ensure accurate reporting for
+                            planning, compliance, and institutional effectiveness.
+                        </div>
+                    </div>
+
+                    <div class="card" onclick="toggleBio(this)">
+                        <img src="assets/img/image.png" alt="Mr. Siyabonga Nano" />
+                        <div class="card-content">
+                            <h3>Mr. Siyabonga Nano</h3>
+                            <p class="title">Manager</p>
+                            <p class="email"><i class="fas fa-envelope"></i> <a
+                                    href="mailto:snano@wsu.ac.za">snano@wsu.ac.za</a></p>
+                        </div>
+                        <div class="bio-overlay">
+                            Leads recruitment, employee engagement, and builds an inclusive organizational culture.
+                        </div>
+                    </div>
+
                 </div>
+            </section>
+        </main>
 
-                <p class="unit-description">
-                    The Higher Education Management Information System (HEMIS) team manages institutional reporting
-                    to state and federal agencies, ensuring compliance with reporting requirements.
-                </p>
+        <script>
+            function toggleBio(card) {
+                // Only enable toggle on touch devices (no hover)
+                if (window.matchMedia("(hover: none) and (pointer: coarse)").matches) {
+                    card.classList.toggle('active');
+                }
+            }
+        </script>
+</body>
 
-                <div class="contact-grid">
-                    <div class="contact-card">
-                        <h3>Reporting Inquiries</h3>
-                        <div class="contact-method">
-                            <i class="fas fa-envelope method-icon"></i>
-                            <span>bngomfela@wsu.ac.za</span>
-                        </div>
-                        <div class="contact-method">
-                            <i class="fas fa-phone method-icon"></i>
-                            <span>043</span>
-                        </div>
-                    </div>
-
-                    <div class="contact-card">
-                        <h3>Compliance Questions</h3>
-                        <div class="contact-method">
-                            <i class="fas fa-balance-scale method-icon"></i>
-                            <span>hemis-compliance@wsu.ac.za</span>
-                        </div>
-                    </div>
-
-                    <div class="contact-card">
-                        <h3>Documentation</h3>
-                        <div class="contact-method">
-                            <i class="fas fa-book method-icon"></i>
-                            <span><a href="#">HEMIS Reporting Manual</a></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    </body>
 </html>
