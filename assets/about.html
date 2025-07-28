@@ -5,8 +5,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>IRP - WSU</title>
-    <link rel="stylesheet" href="assets/css/style.css" />
-    <link rel="shortcut icon" href="assets/img/logo.svg" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="shortcut icon" href="img/logo.svg" type="image/x-icon">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 </head>
 <style>
@@ -99,14 +99,14 @@
 
 <body>
     <section>
-        <script src="js/load-nav.js"></script>
+        <script src="../js/load-nav.js"></script>
         <!-- nav.html -->
         <header class="header">
             <!-- First Row - Logo and Search -->
             <div class="header-top">
                 <div class="header-container">
                     <div class="logo-container centered-logo">
-                        <img src="assets/img/logo.png" alt="WSU LOGO" class="logo-img" />
+                        <img src="img/logo.png" alt="WSU LOGO" class="logo-img" />
                     </div>
                     <div class="search-container">
                         <form class="search-form" id="searchForm">
@@ -129,7 +129,7 @@
             <!-- Second Row - Centered Navigation -->
             <div class="header-bottom">
                 <!-- Hamburger Button for Mobile -->
-                 <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false"
+                <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false"
                     aria-controls="sidebar">
                     <span class="hamburger-icon">&#9776;</span>
                     <span class="hamburger-label">Menu</span>
@@ -145,30 +145,7 @@
 
                         </form>
                     </div>
-                    <ul class="nav-links">
-                        <li><a href="index.html" class="nav-link">Home</a></li>
-                        <li><a href="about.html" class="nav-link active">About Us</a></li>
-                        <li class="dropdown">
-                            <a href="#" class="nav-link dropdown-toggle">
-                                Units
-                                <svg class="dropdown-icon" viewBox="0 0 24 24" width="16" height="16">
-                                    <path fill="currentColor" d="M7 10l5 5 5-5z" />
-                                </svg>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="./IRI/index.html" class="dropdown-link">Institutional Intelligence</a>
-                                <li><a href="./STU/stu.html" class="dropdown-link">Student Tracking - Institutional
-                                        Research</a></li>
-                                <li><a href="./HEMIS/hemis.html" class="dropdown-link">HEMIS</a></li>
-                                <li><a href="./IR/ir.html" class="dropdown-link">Analytics & Business Intelligence</a>
-                                </li>
-                                
-                            </ul>
-                        </li>
-                        <li><a href="news.html" class="nav-link">News</a></li>
-                        <li><a href="team.html" class="nav-link">Meet Our Team</a></li>
-                        <li><a href="contact.html" onclick="contact()" class="nav-link">Contact Us</a></li>
-                    </ul>
+                    <div id="navbar"></div>
                 </nav>
             </div>
         </header>
@@ -195,6 +172,13 @@
                 recognize that data-informed decision-making and insightful intelligence are the cornerstones of our
                 ability
                 to adapt, thrive, and fulfil our commitment to excellence.
+            </p>
+            <p>
+                <strong>For more information:</strong>
+                <a href="assets/reports/irp-overview-2024.pdf" target="_blank" rel="noopener noreferrer"
+                    class="download-link">
+                    Download the IRP Unit Overview (PDF)
+                </a>
             </p>
         </section>
 
@@ -322,7 +306,7 @@
                 community.
             </p>
         </section>
-    </section>
+
 </body>
 
 </html>

@@ -1,273 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Modern Responsive Nav</title>
-  <style>
-    /* Reset */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+  <link rel="stylesheet" href="assets/css/style.css">
 
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f7f9fc;
-      color: #1a347e;
-      min-height: 100vh;
-    }
-
-    header {
-      background: white;
-      box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
-      position: fixed;
-      width: 100%;
-      top: 0;
-      left: 0;
-      z-index: 1200;
-    }
-
-    .header-top {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 10px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .logo-container {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .logo-img {
-      height: 50px;
-      user-select: none;
-    }
-
-    /* Desktop nav */
-    .navbar {
-      display: flex;
-      gap: 25px;
-      font-weight: 600;
-      font-size: 1rem;
-      flex: 3;
-      justify-content: flex-end;
-    }
-
-    .nav-links a {
-      color: #1a347e;
-      text-decoration: none;
-      padding: 10px 16px;
-      border-radius: 8px;
-      transition: background 0.25s ease, color 0.25s ease;
-      user-select: none;
-      cursor: pointer;
-    }
-
-    .nav-links a:hover,
-    .nav-links a:focus {
-      background: #3b82f6;
-      color: white;
-      outline: none;
-      box-shadow: 0 0 8px #3b82f6aa;
-    }
-
-    /* Hamburger button */
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      justify-content: space-around;
-      width: 28px;
-      height: 22px;
-      background: transparent;
-      border: none;
-      cursor: pointer;
-      padding: 0;
-      user-select: none;
-      transition: transform 0.3s ease;
-      z-index: 1300;
-    }
-
-    .hamburger:focus {
-      outline: 2px solid #3b82f6;
-      outline-offset: 2px;
-    }
-
-    .hamburger .bar {
-      width: 100%;
-      height: 3px;
-      background-color: #1a347e;
-      border-radius: 2px;
-      transition: all 0.3s ease;
-      transform-origin: 1px;
-    }
-
-    /* Hamburger active animation */
-    .hamburger.active .bar:nth-child(1) {
-      transform: rotate(45deg);
-    }
-
-    .hamburger.active .bar:nth-child(2) {
-      opacity: 0;
-      transform: translateX(20px);
-    }
-
-    .hamburger.active .bar:nth-child(3) {
-      transform: rotate(-45deg);
-    }
-
-    /* Sidebar styles */
-    #sidebar {
-      position: fixed;
-      top: 0;
-      left: -280px;
-      width: 280px;
-      height: 100vh;
-      background: #1a347e;
-      color: white;
-      padding: 40px 25px;
-      box-shadow: 2px 0 15px rgba(0, 0, 0, 0.25);
-      display: flex;
-      flex-direction: column;
-      gap: 30px;
-      transition: left 0.35s ease;
-      z-index: 1250;
-      user-select: none;
-    }
-
-    #sidebar.show {
-      left: 0;
-    }
-
-    #sidebar .close-btn {
-      align-self: flex-end;
-      background: none;
-      border: none;
-      font-size: 34px;
-      color: #3b82f6;
-      cursor: pointer;
-      transition: color 0.3s ease;
-    }
-
-    #sidebar .close-btn:hover,
-    #sidebar .close-btn:focus {
-      color: #f0f0f0;
-      outline: none;
-    }
-
-    #sidebar .nav-links {
-      display: flex;
-      flex-direction: column;
-      gap: 25px;
-    }
-
-    #sidebar .nav-links a {
-      color: white;
-      font-weight: 600;
-      font-size: 1.1rem;
-      text-decoration: none;
-      padding: 10px 16px;
-      border-radius: 10px;
-      transition: background 0.25s ease;
-      user-select: none;
-    }
-
-    #sidebar .nav-links a:hover,
-    #sidebar .nav-links a:focus {
-      background: #3b82f6;
-      outline: none;
-    }
-
-    /* Responsive adjustments */
-    @media (max-width: 768px) {
-      .navbar {
-        display: none;
-      }
-
-      .hamburger {
-        display: flex;
-      }
-
-      .logo-container {
-        flex: none;
-        margin: 0 auto;
-      }
-    }
-
-    @media (min-width: 769px) {
-      #sidebar {
-        display: none;
-      }
-    }
-  </style>
 </head>
+
 <body>
-  <header>
-    <div class="header-top">
-      <div class="logo-container">
-        <img src="assets/img/logo.png" alt="WSU LOGO" class="logo-img" />
-      </div>
+  
+<section>
+    <script src="js/load-nav.js"></script>
+    <!-- nav.html -->
+    <header class="header">
+        <!-- First Row - Logo and Search -->
+        <div class="header-top">
+            <div class="header-container">
+                <div class="logo-container centered-logo">
+                    <img src="assets/img/logo.png" alt="WSU LOGO" class="logo-img" />
+                </div>
+                <div class="search-container">
+                    <form class="search-form" id="searchForm">
+                        <input type="text" class="search-input" id="searchInput" placeholder="Search..."
+                            aria-label="Search" />
+                        <button type="submit" class="search-button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                            </svg>
+                        </button>
+                    </form>
+                    <div class="search-results" id="searchResults"></div>
+                </div>
+            </div>
+        </div>
+        <!-- Second Row - Centered Navigation -->
+        <div class="header-bottom">
+            <!-- Hamburger Button for Mobile -->
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false"
+                aria-controls="sidebar">
+                <span class="hamburger-icon">&#9776;</span>
+                <span class="hamburger-label">Menu</span>
+            </button>
+            <!-- Sidebar Navigation -->
+            <nav class="navbar" id="sidebar" aria-label="Mobile Navigation">
+                <!-- Sidebar Search at top -->
+                <!-- Sidebar Search for Mobile -->
+                <div class="sidebar-search-container">
+                    <form class="sidebar-search-form" id="sidebarSearchForm">
+                        <input type="text" class="sidebar-search-input" placeholder="Search..." aria-label="Search" />
+                    </form>
+                </div>
+                <div id="navbar"></div>
 
-      <nav class="navbar">
-        <ul class="nav-links">
-          <li><a href="/index.html">Home</a></li>
-          <li><a href="#">About Us</a></li>
-          <li><a href="#">Units</a></li>
-          <li><a href="contact.html">Contact Us</a></li>
-        </ul>
-      </nav>
 
-      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </button>
-    </div>
+            </nav>
+        </div>
+    </header>
+</section>
 
-    <nav id="sidebar" aria-label="Mobile Navigation">
-      <button class="close-btn" id="closeBtn" aria-label="Close menu">&times;</button>
-      <ul class="nav-links">
-        <li><a href="/index.html">Home</a></li>
-        <li><a href="#">About Us</a></li>
-        <li><a href="#">Units</a></li>
-        <li><a href="contact.html">Contact Us</a></li>
-      </ul>
-    </nav>
-  </header>
 
-  <script>
-    const hamburger = document.getElementById("hamburger");
-    const sidebar = document.getElementById("sidebar");
-    const closeBtn = document.getElementById("closeBtn");
-
-    hamburger.addEventListener("click", () => {
-      sidebar.classList.toggle("show");
-      hamburger.classList.toggle("active");
-      // Accessibility attribute
-      const expanded = hamburger.getAttribute("aria-expanded") === "true";
-      hamburger.setAttribute("aria-expanded", String(!expanded));
-    });
-
-    closeBtn.addEventListener("click", () => {
-      sidebar.classList.remove("show");
-      hamburger.classList.remove("active");
-      hamburger.setAttribute("aria-expanded", "false");
-    });
-
-    // Optional: close sidebar if clicking outside it
-    window.addEventListener("click", (e) => {
-      if (!sidebar.contains(e.target) && !hamburger.contains(e.target)) {
-        sidebar.classList.remove("show");
-        hamburger.classList.remove("active");
-        hamburger.setAttribute("aria-expanded", "false");
-      }
-    });
-  </script>
 </body>
+
 </html>

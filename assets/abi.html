@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IRP - WSU</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="shortcut icon" href="img/logo.svg" type="image/x-icon">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+</head>
+<style>
+    .main-content h2 {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #0d3b66;
+        margin-top: 2rem;
+    }
+
+    .main-content h3,
+    .main-content h4 {
+        font-size: 1.25rem;
+        margin-top: 1.5rem;
+        color: #333;
+    }
+
+    .main-content p {
+        line-height: 1.7;
+        margin-bottom: 1rem;
+        /* text-align: justify; */
+    }
+
+    .main-content ul {
+        margin-left: 1.25rem;
+        padding-left: 1rem;
+        list-style-type: disc;
+    }
+
+    .main-content li {
+        margin-bottom: 0.75rem;
+    }
+</style>
+
+<body>
+
+    <section>
+        <script src="../js/load-nav.js"></script>
+        <!-- nav.html -->
+        <header class="header">
+            <!-- First Row - Logo and Search -->
+            <div class="header-top">
+                <div class="header-container">
+                    <div class="logo-container centered-logo">
+                        <img src="img/logo.png" alt="WSU LOGO" class="logo-img" />
+                    </div>
+                    <div class="search-container">
+                        <form class="search-form" id="searchForm">
+                            <input type="text" class="search-input" id="searchInput" placeholder="Search..."
+                                aria-label="Search" />
+                            <button type="submit" class="search-button">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <circle cx="11" cy="11" r="8"></circle>
+                                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                                </svg>
+                            </button>
+                        </form>
+                        <div class="search-results" id="searchResults"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Second Row - Centered Navigation -->
+            <div class="header-bottom">
+                <!-- Hamburger Button for Mobile -->
+                 <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false"
+                    aria-controls="sidebar">
+                    <span class="hamburger-icon">&#9776;</span>
+                    <span class="hamburger-label">Menu</span>
+                </button>
+
+                <!-- Sidebar Navigation -->
+                <nav class="navbar" id="sidebar" aria-label="Mobile Navigation">
+                    <!-- Sidebar Search for Mobile -->
+                    <div class="sidebar-search-container">
+                        <form class="sidebar-search-form" id="sidebarSearchForm">
+                            <input type="text" class="sidebar-search-input" placeholder="Search..."
+                                aria-label="Search" />
+
+                        </form>
+                    </div>
+                   <div id="navbar"></div>
+                </nav>
+            </div>
+        </header>
+    </section>
+
+    <section class="contact-hero">
+        <br>
+        <h1>ABI</h1>
+        <p>Welcome to Analytics & Business Intelligence</p>
+
+        <nav class="section-nav">
+            <ul>
+                <li><a href="../IR/dashboard.html" class="section-link">View Dashboards</a></li>
+                <li><a href="../IR/reports.html" class="section-link">View Reports</a></li>
+            </ul>
+        </nav>
+    </section>
+
+
+    <section class="main-content" style="padding: 3rem 1.5rem; max-width: 1200px; margin: auto;">
+        <!-- Analytics & Business Intelligence -->
+        <h2>Analytics & Business Intelligence</h2>
+        <p style="text-align: justify;">
+            The Analytics & Business Intelligence function plays a crucial role in supporting the university's
+            evidence-based approach to planning and decision-making. It relies on data and analysis, facilitated by a
+            robust Business Intelligence solution. This unit conducts strategic evaluations of institutional
+            performance, including benchmarking, performance analysis, annual and midterm reports, and departmental
+            performance profiling.
+        </p>
+        <p style="text-align: justify;">
+            The function also models future performance trends such as student enrolment projections and carries out
+            impact assessments. It provides the evidence base for programme reviews, strategic initiatives, and ad hoc
+            requests.
+        </p>
+
+        <h4>Roles and Responsibilities:</h4>
+        <ul>
+            <li><strong>Data Warehousing:</strong> Design, build, and maintain relational databases and data systems for
+                effective storage and analysis. Establish a scalable and secure data warehousing infrastructure.</li>
+            <li><strong>Feeder Schools:</strong> Analyse data from feeder schools to gain insights into prospective
+                student populations and demographic patterns.</li>
+            <li><strong>Special Projects:</strong> Execute data-driven special projects that align with strategic
+                university goals, providing tailored reporting and analysis.</li>
+            <li><strong>Institutional Performance Monitoring:</strong> Track institutional performance metrics, identify
+                gaps, and generate reports to inform continuous improvement across faculties and departments.</li>
+            <li><strong>Institutional Reports and Publications:</strong> Develop and share detailed institutional
+                reports with stakeholders to guide policy, planning, and public communication.</li>
+            <li><strong>Self-Service Reporting and Dashboards:</strong> Provide tools such as PowerHEDA for users to
+                access real-time data, generate custom reports, and make informed decisions independently.</li>
+            <li><strong>Data Warehouse for Student Success:</strong> Manage the integration of Learning Management
+                System (LMS) and other data into analytics platforms that support learning analytics and student success
+                initiatives.</li>
+        </ul>
+
+        <p style="text-align: justify;">
+            This function serves as a central pillar of the university’s data ecosystem, enabling performance
+            assessment, strategic foresight, and a culture of data-informed action across the institution.
+        </p>
+    </section>
+
+
+</body>
+
+</html>

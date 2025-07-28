@@ -1,3 +1,11 @@
+//  navbar import
+fetch('../headers/nav.html')
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById('navbar').innerHTML = data;
+      });
+
+
 document.addEventListener("DOMContentLoaded", function () {
   const hamburger = document.getElementById("hamburger");
   const sidebar = document.getElementById("sidebar");

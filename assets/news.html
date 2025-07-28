@@ -5,8 +5,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>IRP - WSU</title>
-  <link rel="stylesheet" href="assets/css/style.css" />
-  <link rel="shortcut icon" href="assets/img/logo.svg" type="image/x-icon" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="shortcut icon" href="img/logo.svg" type="image/x-icon" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet" />
   <style>
     body {
@@ -182,76 +182,58 @@
 <body>
   <section>
     <!-- nav.html -->
-    <header class="header">
-      <!-- First Row - Logo and Search -->
-      <div class="header-top">
-        <div class="header-container">
-          <div class="logo-container centered-logo">
-            <img src="assets/img/logo.png" alt="WSU LOGO" class="logo-img" />
-          </div>
-          <div class="search-container">
-            <form class="search-form" id="searchForm">
-              <input type="text" class="search-input" id="searchInput" placeholder="Search..." aria-label="Search" />
-              <button type="submit" class="search-button">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="11" cy="11" r="8"></circle>
-                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                </svg>
-              </button>
-            </form>
-            <div class="search-results" id="searchResults"></div>
-          </div>
-        </div>
-      </div>
+    <section>
+        <script src="../js/load-nav.js"></script>
+        <!-- nav.html -->
+        <header class="header">
+            <!-- First Row - Logo and Search -->
+            <div class="header-top">
+                <div class="header-container">
+                    <div class="logo-container centered-logo">
+                        <img src="img/logo.png" alt="WSU LOGO" class="logo-img" />
+                    </div>
+                    <div class="search-container">
+                        <form class="search-form" id="searchForm">
+                            <input type="text" class="search-input" id="searchInput" placeholder="Search..."
+                                aria-label="Search" />
+                            <button type="submit" class="search-button">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <circle cx="11" cy="11" r="8"></circle>
+                                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                                </svg>
+                            </button>
+                        </form>
+                        <div class="search-results" id="searchResults"></div>
+                    </div>
+                </div>
+            </div>
 
-      <!-- Second Row - Centered Navigation -->
-      <div class="header-bottom">
-        <!-- Hamburger Button for Mobile -->
-         <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false"
+            <!-- Second Row - Centered Navigation -->
+            <div class="header-bottom">
+                <!-- Hamburger Button for Mobile -->
+                 <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false"
                     aria-controls="sidebar">
                     <span class="hamburger-icon">&#9776;</span>
                     <span class="hamburger-label">Menu</span>
                 </button>
 
+                <!-- Sidebar Navigation -->
+                <nav class="navbar" id="sidebar" aria-label="Mobile Navigation">
+                    <!-- Sidebar Search for Mobile -->
+                    <div class="sidebar-search-container">
+                        <form class="sidebar-search-form" id="sidebarSearchForm">
+                            <input type="text" class="sidebar-search-input" placeholder="Search..."
+                                aria-label="Search" />
 
-        <!-- Sidebar Navigation -->
-        <nav class="navbar" id="sidebar" aria-label="Mobile Navigation">
-          <!-- Sidebar Navigation -->
-
-          <!-- Sidebar Search at top -->
-          <!-- Sidebar Search for Mobile -->
-          <div class="sidebar-search-container">
-            <form class="sidebar-search-form" id="sidebarSearchForm">
-              <input type="text" class="sidebar-search-input" placeholder="Search..." aria-label="Search" />
-
-            </form>
-          </div>
-          <ul class="nav-links">
-            <li><a href="index.html" class="nav-link">Home</a></li>
-            <li><a href="about.html" class="nav-link">About Us</a></li>
-            <li class="dropdown">
-              <a href="#" class="nav-link dropdown-toggle">
-                Units
-                <svg class="dropdown-icon" viewBox="0 0 24 24" width="16" height="16">
-                  <path fill="currentColor" d="M7 10l5 5 5-5z" />
-                </svg>
-              </a>
-              <ul class="dropdown-menu">
-                <li><a href="./IRI/index.html" class="dropdown-link">Institutional Intelligence</a></li>
-                <li><a href="./STU/stu.html" class="dropdown-link">Student Tracking - Institutional Research</a></li>
-                <li><a href="./HEMIS/hemis.html" class="dropdown-link">HEMIS</a></li>
-                <li><a href="./IR/ir.html" class="dropdown-link">Analytics & Business Intelligence</a></li>
-              </ul>
-            </li>
-            <li><a href="news.html" class="nav-link active">News</a></li>
-            <li><a href="team.html" class="nav-link">Meet Our Team</a></li>
-            <li><a href="contact.html" onclick="contact()" class="nav-link">Contact Us</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
-  </section>
+                        </form>
+                    </div>
+                   <div id="navbar"></div>
+                </nav>
+            </div>
+        </header>
+    </section>
 
   <div class="responsive-wrapper">
 
@@ -260,21 +242,21 @@
     <div class="section-heading">Top Stories</div>
     <div class="newspaper-columns">
       <article class="article">
-        <img src="assets/img/mbods.png" alt="Dr Mbodila" />
+        <img src="img/mbods.png" alt="Dr Mbodila" />
         <h3 class="article-title"><a href="#">Exploring Policy Impacts on Higher Education</a></h3>
         <div class="article-excerpt">
           <p>How government policy shifts are shaping institutional research practices and long-term planning.</p>
         </div>
       </article>
       <article class="article">
-        <img src="assets/img/mbods-sis.png" alt="Sisonke Mbodila" />
+        <img src="img/mbods-sis.png" alt="Sisonke Mbodila" />
         <h3 class="article-title"><a href="#">The Future of Academic Data Analytics</a></h3>
         <div class="article-excerpt">
           <p>Examining how predictive analytics are being leveraged to boost student success across campuses.</p>
         </div>
       </article>
       <article class="article">
-        <img src="assets/img/Mr-Mapatagang.png" alt="Mr-Mapatagang" />
+        <img src="img/Mr-Mapatagang.png" alt="Mr-Mapatagang" />
         <h3 class="article-title"><a href="#">Building Cross-Unit Collaboration Models</a></h3>
         <div class="article-excerpt">
           <p>New frameworks help integrate planning efforts among IR, finance, and academic affairs.</p>
@@ -291,21 +273,21 @@
     <div class="section-heading">Featured Reports</div>
     <div class="newspaper-columns">
       <article class="article">
-        <img src="assets/img/VC.png" alt="VC" />
+        <img src="img/VC.png" alt="VC" />
         <h3 class="article-title"><a href="#">2025 Data Governance Policy Review</a></h3>
         <div class="article-excerpt">
           <p>Updates to internal data policy ensure ethical use, access control, and interoperability.</p>
         </div>
       </article>
       <article class="article">
-        <img src="assets/img/Library.png" alt="Library" />
+        <img src="img/Library.png" alt="Library" />
         <h3 class="article-title"><a href="#">Improving Library Resource Utilization</a></h3>
         <div class="article-excerpt">
           <p>IRP-supported survey measures how digital library systems meet student and faculty needs.</p>
         </div>
       </article>
       <article class="article">
-        <img src="assets/img/bench.png" alt="Bench" />
+        <img src="img/bench.png" alt="Bench" />
         <h3 class="article-title"><a href="#">National Benchmarking Survey Highlights</a></h3>
         <div class="article-excerpt">
           <p>Findings from the comparative survey of student experience and graduate performance.</p>

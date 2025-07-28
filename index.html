@@ -106,6 +106,7 @@
 </style>
 
 <body>
+
     <section>
         <script src="js/load-nav.js"></script>
         <!-- nav.html -->
@@ -151,31 +152,35 @@
                                 aria-label="Search" />
                         </form>
                     </div>
+                        <ul class="nav-links">
+                            <li><a href="index.html" class="nav-link active">Home</a></li>
+                            <li><a href="./assets/about.html" class="nav-link">About Us</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle">
+                                    Core Functions
+                                    <svg class="dropdown-icon" viewBox="0 0 24 24" width="16" height="16">
+                                        <path fill="currentColor" d="M7 10l5 5 5-5z" />
+                                    </svg>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="./assets/insti_efficiency.html" class="dropdown-link">Institutional
+                                            Efficiency</a></li>
+                                    <li><a href="./assets/stu.html" class="dropdown-link">Student Tracking -
+                                            Institutional
+                                            Research</a></li>
+                                    <li><a href="./assets/hemis.html" class="dropdown-link">HEMIS</a></li>
+                                    <li><a href="./assets/abi.html" class="dropdown-link">Analytics & Business
+                                            Intelligence</a>
+                                    </li>
 
-                    <ul class="nav-links">
-                        <li><a href="index.html" class="nav-link active">Home</a></li>
-                        <li><a href="about.html" class="nav-link">About Us</a></li>
-                        <li class="dropdown">
-                            <a href="#" class="nav-link dropdown-toggle">
-                                Units
-                                <svg class="dropdown-icon" viewBox="0 0 24 24" width="16" height="16">
-                                    <path fill="currentColor" d="M7 10l5 5 5-5z" />
-                                </svg>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="./IRI/index.html" class="dropdown-link">Institutional Intelligence</a></li>
-                                <li><a href="./STU/stu.html" class="dropdown-link">Student Tracking - Institutional
-                                        Research</a></li>
-                                <li><a href="./HEMIS/hemis.html" class="dropdown-link">HEMIS</a></li>
-                                <li><a href="./IR/ir.html" class="dropdown-link">Analytics & Business Intelligence</a>
-                                </li>
+                                </ul>
+                            </li>
+                            <li><a href="./assets/news.html" class="nav-link">News</a></li>
+                            <li><a href="./assets/team.html" class="nav-link">Meet Our Team</a></li>
+                            <li><a href="./assets/contact.html" onclick="contact()" class="nav-link">Contact Us</a></li>
+                        </ul>
 
-                            </ul>
-                        </li>
-                        <li><a href="news.html" class="nav-link">News</a></li>
-                        <li><a href="team.html" class="nav-link">Meet Our Team</a></li>
-                        <li><a href="contact.html" onclick="contact()" class="nav-link">Contact Us</a></li>
-                    </ul>
+
                 </nav>
             </div>
         </header>
@@ -189,10 +194,10 @@
             <p>
                 Empowering WSU with data, insights, and strategy for student success and institutional excellence.
             </p>
-            <div class="hero-buttons">
+            <!-- <div class="hero-buttons">
                 <a href="about.html" class="btn btn-primary">Learn More</a>
                 <a href="contact.html" class="btn btn-secondary">Contact Us</a>
-            </div>
+            </div> -->
         </div>
     </section>
     <!-- About Section -->
@@ -249,66 +254,7 @@
             </div>
         </div>
     </section>
-    <!-- Units Section -->
-    <section class="units-section">
-        <!-- <hr class="bar-line"> -->
-        <div class="container">
-            <h2 class="section-title">Our Core Units</h2>
 
-            <div class="units-grid">
-                <div class="unit-card">
-                    <div class="unit-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="12" cy="12" r="3"></circle>
-                            <path
-                                d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33h.09A1.65 1.65 0 0 0 11 5.6V5a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51h.09a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82v.09a1.65 1.65 0 0 0 1.51 1z">
-                            </path>
-                            <polyline points="9 12 12 15 15 9"></polyline>
-                        </svg>
-                    </div>
-                    <h3>Operational Intelligence</h3>
-                    <p class="unit-subtitle">Planning & Resources</p>
-                    <p class="unit-description">Enrolment, performance reports, viability analysis.</p>
-                    <a href="assest/operational-intelligence.html" class="btn btn-outline">Learn More</a>
-                </div>
-
-                <div class="unit-card">
-                    <div class="unit-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path d="M22 10L12 15 2 10l10-5 10 5z"></path>
-                            <path d="M2 10v6a10 10 0 0 0 20 0v-6"></path>
-                            <path d="M12 15v7"></path>
-                        </svg>
-                    </div>
-                    <h3>Student & Learning</h3>
-                    <p class="unit-subtitle">Success Analytics</p>
-                    <p class="unit-description">Student tracking, early alerts, learning analytics.</p>
-                    <a href="assest/student-programmes.html" class="btn btn-outline">Learn More</a>
-                </div>
-
-                <div class="unit-card">
-                    <div class="unit-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <line x1="12" y1="20" x2="12" y2="10"></line>
-                            <line x1="18" y1="20" x2="18" y2="4"></line>
-                            <line x1="6" y1="20" x2="6" y2="16"></line>
-                            <line x1="2" y1="20" x2="22" y2="20"></line>
-                        </svg>
-                    </div>
-                    <h3>Institutional Research</h3>
-                    <p class="unit-subtitle">Data & Surveys</p>
-                    <p class="unit-description">Policy support, KPI monitoring, staff/student surveys.</p>
-                    <a href="assest/institutional-research.html" class="btn btn-outline">Learn More</a>
-                </div>
-            </div>
-        </div>
-    </section>
     <section class="news-events-container">
         <!-- News Section -->
         <div class="news-section">
@@ -464,7 +410,7 @@
 
 
                 </form>
-                <p class="newsletter-note">We respect your privacy. Unsubscribe at any time.</p>
+                <p class="newsletter-note">We respect your privacy. <a href="">Unsubscribe</a> at any time.</p>
             </div>
         </div>
     </section>
@@ -485,18 +431,19 @@
                 <div class="footer-links">
                     <h4 class="footer-title">Quick Links</h4>
                     <ul>
-                        <li><a href="#">Our Units</a></li>
-                        <li><a href="#">Meet Our Team</a></li>
-                        <li><a href="#">Our Reports</a></li>
-                        <li><a href="#">News & Blog</a></li>
+                        <li><a href="team.html">Meet Our Team</a></li>
+                        <li><a href="news.html">Our Reports</a></li>
+                        <li><a href="news.html">News & Blog</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-links">
                     <h4 class="footer-title">Units</h4>
                     <ul>
-                        <li><a href="#">Student Tracking Unit</a></li>
-                        <li><a href="#">HEMIS</a></li>
+                        <li><a href="./IRI/index.html">Institutional Efficiency</a></li>
+                        <li><a href="./STU/stu.html">Student Tracking - IR</a></li>
+                        <li><a href="./HEMIS/hemis.html">HEMIS</a></li>
+                        <li><a href="./IR/ir.html">Analytics & Business Intelligence</a></li>
                     </ul>
                 </div>
 
