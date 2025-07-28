@@ -3,6 +3,13 @@ fetch('../headers/nav.html')
       .then(res => res.text())
       .then(data => {
         document.getElementById('navbar').innerHTML = data;
+        // Highlight current page
+                const links = document.querySelectorAll('.nav-link');
+                links.forEach(link => {
+                    if (link.href === window.location.href) {
+                        link.classList.add('active');
+                    }
+                });
       });
 
 
