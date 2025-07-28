@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>IRP - WSU</title>
-    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="css/style.css" />
     <link rel="shortcut icon" href="assets/img/logo.svg" type="image/x-icon">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 </head>
@@ -107,15 +107,15 @@
 
 <body>
 
-    <section>
-        <script src="js/load-nav.js"></script>
+   <section>
+        <script src="../js/load-nav.js"></script>
         <!-- nav.html -->
         <header class="header">
             <!-- First Row - Logo and Search -->
             <div class="header-top">
                 <div class="header-container">
                     <div class="logo-container centered-logo">
-                        <img src="assets/img/logo.png" alt="WSU LOGO" class="logo-img" />
+                        <img src="img/logo.png" alt="WSU LOGO" class="logo-img" />
                     </div>
                     <div class="search-container">
                         <form class="search-form" id="searchForm">
@@ -134,6 +134,7 @@
                     </div>
                 </div>
             </div>
+
             <!-- Second Row - Centered Navigation -->
             <div class="header-bottom">
                 <!-- Hamburger Button for Mobile -->
@@ -142,52 +143,25 @@
                     <span class="hamburger-icon">&#9776;</span>
                     <span class="hamburger-label">Menu</span>
                 </button>
+
                 <!-- Sidebar Navigation -->
                 <nav class="navbar" id="sidebar" aria-label="Mobile Navigation">
-                    <!-- Sidebar Search at top -->
                     <!-- Sidebar Search for Mobile -->
                     <div class="sidebar-search-container">
                         <form class="sidebar-search-form" id="sidebarSearchForm">
                             <input type="text" class="sidebar-search-input" placeholder="Search..."
                                 aria-label="Search" />
+
                         </form>
                     </div>
-                        <ul class="nav-links">
-                            <li><a href="index.html" class="nav-link active">Home</a></li>
-                            <li><a href="./assets/about.html" class="nav-link">About Us</a></li>
-                            <li class="dropdown">
-                                <a href="#" class="nav-link dropdown-toggle">
-                                    Core Functions
-                                    <svg class="dropdown-icon" viewBox="0 0 24 24" width="16" height="16">
-                                        <path fill="currentColor" d="M7 10l5 5 5-5z" />
-                                    </svg>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="./assets/insti_efficiency.html" class="dropdown-link">Institutional
-                                            Efficiency</a></li>
-                                    <li><a href="./assets/stu.html" class="dropdown-link">Student Tracking -
-                                            Institutional
-                                            Research</a></li>
-                                    <li><a href="./assets/hemis.html" class="dropdown-link">HEMIS</a></li>
-                                    <li><a href="./assets/abi.html" class="dropdown-link">Analytics & Business
-                                            Intelligence</a>
-                                    </li>
-
-                                </ul>
-                            </li>
-                            <li><a href="./assets/news.html" class="nav-link">News</a></li>
-                            <li><a href="./assets/team.html" class="nav-link">Meet Our Team</a></li>
-                            <li><a href="./assets/contact.html" onclick="contact()" class="nav-link">Contact Us</a></li>
-                        </ul>
-
-
+                    <div id="navbar"></div>
                 </nav>
             </div>
         </header>
     </section>
     <!-- Hero Section -->
     <section class="hero-section" style="background: linear-gradient(to top, #1d1919bb 23%, #0a0e12a0 95%), 
-            url('assets/img/hero.png') no-repeat center center/cover; color: white; text-align: center; height: 100%;">
+            url('img/hero.png') no-repeat center center/cover; color: white; text-align: center; height: 100%;">
         <div class="hero-content">
 
             <h2>Institutional Research and Planning</h2>
@@ -261,7 +235,7 @@
             <h2 class="section-title">Latest News</h2>
             <div class="news-cards">
                 <div class="news-card">
-                    <img src="STU/pictures/stu-roa.png" alt="News 1" class="news-image" />
+                    <img src="../STU/pictures/stu-roa.png" alt="News 1" class="news-image" />
                     <div class="news-content">
                         <h3 class="news-title">New Tech Innovation Announced</h3>
                         <p class="news-description">WSU launches an advanced AI model to assist students and lecturers
@@ -271,7 +245,7 @@
                 </div>
 
                 <div class="news-card">
-                    <img src="STU/pictures/olvia.png" alt="News 2" class="news-image" />
+                    <img src="../STU/pictures/olvia.png" alt="News 2" class="news-image" />
                     <div class="news-content">
                         <h3 class="news-title">Student Expo 2025 Highlights</h3>
                         <p class="news-description">Explore the best student projects that stole the spotlight during
@@ -281,7 +255,7 @@
                 </div>
 
                 <div class="news-card">
-                    <img src="STU/pictures/vc.png" alt="News 3" class="news-image" />
+                    <img src="../STU/pictures/vc.png" alt="News 3" class="news-image" />
                     <div class="news-content">
                         <h3 class="news-title">WSU Ranked Top 5</h3>
                         <p class="news-description">Walter Sisulu University is now ranked among the top 5 institutions
@@ -309,7 +283,7 @@
             <h2 class="section-title">Latest Reports & Dashboards</h2>
             <div class="latest-grid">
                 <article class="latest-item">
-                    <img src="assets/img/follow-up.png" alt="Report 1" class="latest-img" />
+                    <img src="img/follow-up.png" alt="Report 1" class="latest-img" />
                     <div class="latest-content">
                         <h3 class="latest-title">2024 Student At Risk</h3>
                         <p class="latest-desc" style="text-align: justify;">Comprehensive analysis of graduate outcomes
@@ -322,7 +296,7 @@
                 </article>
 
                 <article class="latest-item">
-                    <img src="assets/img/stop-out.png" alt="Dashboard 1" class="latest-img" />
+                    <img src="img/stop-out.png" alt="Dashboard 1" class="latest-img" />
                     <div class="latest-content">
                         <h3 class="latest-title">Stop Out Survey</h3>
                         <p class="latest-desc" style="text-align: justify;">Understanding the reasons behind student
@@ -334,7 +308,7 @@
                 </article>
 
                 <article class="latest-item">
-                    <img src="assets/img/graduation.png" alt="Report 2" class="latest-img" />
+                    <img src="img/graduation.png" alt="Report 2" class="latest-img" />
                     <div class="latest-content">
                         <h3 class="latest-title">Graduate Destination Survey</h3>
                         <p class="latest-desc" style="text-align: justify;">Class of 2024 – Summer Graduations. This
@@ -348,7 +322,7 @@
                 </article>
 
                 <article class="latest-item">
-                    <img src="assets/img/postgrad.png" alt="Report 2" class="latest-img" />
+                    <img src="img/postgrad.png" alt="Report 2" class="latest-img" />
                     <div class="latest-content">
                         <h3 class="latest-title">Postgraduate Experience Survey 2024</h3>
                         <p class="latest-desc" style="text-align: justify;">This report marks a significant step in our
@@ -361,7 +335,7 @@
                 </article>
 
                 <article class="latest-item">
-                    <img src="assets/img/undergrad.png" alt="Report 2" class="latest-img" />
+                    <img src="img/undergrad.png" alt="Report 2" class="latest-img" />
                     <div class="latest-content">
                         <h3 class="latest-title">Undergraduate Experience Survey 2024</h3>
                         <p class="latest-desc" style="text-align: justify;"> first Undergraduate Experience Survey 2024
@@ -376,7 +350,7 @@
                 </article>
 
                 <article class="latest-item">
-                    <img src="assets/img/Employment.png" alt="Report 2" class="latest-img" />
+                    <img src="img/Employment.png" alt="Report 2" class="latest-img" />
                     <div class="latest-content">
                         <h3 class="latest-title">Employment Assessment Report 2024</h3>
                         <p class="latest-desc">Insights into employment rates and skills demand across sectors.</p>
@@ -420,7 +394,7 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <a href="index.html" class="footer-logo">
+                    <a href="index.php" class="footer-logo">
                         Institutional
                         <span>Intelligence</span>
                     </a>
@@ -431,19 +405,19 @@
                 <div class="footer-links">
                     <h4 class="footer-title">Quick Links</h4>
                     <ul>
-                        <li><a href="team.html">Meet Our Team</a></li>
-                        <li><a href="news.html">Our Reports</a></li>
-                        <li><a href="news.html">News & Blog</a></li>
+                        <li><a href="team.php">Meet Our Team</a></li>
+                        <li><a href="news.php">Our Reports</a></li>
+                        <li><a href="news.php">News & Blog</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-links">
                     <h4 class="footer-title">Units</h4>
                     <ul>
-                        <li><a href="./IRI/index.html">Institutional Efficiency</a></li>
-                        <li><a href="./STU/stu.html">Student Tracking - IR</a></li>
-                        <li><a href="./HEMIS/hemis.html">HEMIS</a></li>
-                        <li><a href="./IR/ir.html">Analytics & Business Intelligence</a></li>
+                        <li><a href="insti_efficiency.php">Institutional Efficiency</a></li>
+                        <li><a href="stu.php">Student Tracking - IR</a></li>
+                        <li><a href="hemis.php">HEMIS</a></li>
+                        <li><a href="abi.php">Analytics & Business Intelligence</a></li>
                     </ul>
                 </div>
 
